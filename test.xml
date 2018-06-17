@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues type="array">
+  <issue>
+    <id>4947</id>
+    <project name="你好" id="2"/>
+    <priority name="高优先级" id="4"/>
+    <assigned_to name="张三" id="1215"/>
+    <created_on>Thu Dec 24 16:33:00 +0800 2015</created_on>
+    <updated_on>Thu Dec 24 16:38:13 +0800 2015</updated_on>
+  </issue>
+
+  <issue>
+    <id>4948</id>
+    <project name="我好" id="2"/>
+    <priority name="低优先级" id="4"/>
+    <assigned_to name="李四" id="1215"/>
+    <created_on>Thu Dec 25 16:33:00 +0800 2015</created_on>
+    <updated_on>Thu Dec 25 16:38:13 +0800 2015</updated_on>
+  </issue>
+
+  <issue>
+    <id>4949</id>
+    <project name="大家好" id="2"/>
+    <priority name="高优先级" id="4"/>
+    <assigned_to name="王麻子" id="1215"/>
+    <created_on>Thu Dec 26 16:33:00 +0800 2015</created_on>
+    <updated_on>Thu Dec 26 16:38:13 +0800 2015</updated_on>
+  </issue>
+</issues>

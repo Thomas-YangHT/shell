@@ -1,0 +1,41 @@
+sending incremental file list
+created directory /mnt/192.168.100.222
+docker_20180416-161413.tgz
+docker_20180416-162450.tgz
+
+sent 143636913 bytes  received 50 bytes  8705270.48 bytes/sec
+total size is 143588524  speedup is 1.00
+sending incremental file list
+sending incremental file list
+created directory /mnt/sdc/192.168.100.222
+docker_20180416-161413.tgz
+docker_20180416-162450.tgz
+docker_20180416-170231.tgz
+
+sent 215491361 bytes  received 69 bytes  17239314.40 bytes/sec
+total size is 215418780  speedup is 1.00
+sending incremental file list
+mysql_20180416-211948.sql
+
+sent 102 bytes  received 31 bytes  266.00 bytes/sec
+total size is 0  speedup is 0.00
+sending incremental file list
+mysql_20180416-212503.sql
+
+sent 136 bytes  received 31 bytes  334.00 bytes/sec
+total size is 0  speedup is 0.00
+sending incremental file list
+mysql_20180416-212547.sql
+
+sent 101924 bytes  received 31 bytes  203910.00 bytes/sec
+total size is 2375071  speedup is 23.30
+sending incremental file list
+mysql_20180416-215004.tgz
+
+sent 155 bytes  received 31 bytes  372.00 bytes/sec
+total size is 45  speedup is 0.24
+sending incremental file list
+mysql_20180416-215004.tgz
+
+sent 102042 bytes  received 37 bytes  204158.00 bytes/sec
+total size is 101901  speedup is 1.00

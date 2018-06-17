@@ -1,0 +1,3 @@
+ip,baktype,baknames,bakpolicy
+192.168.100.222,mysql,monitor moninfo docker cmdb,1 2 \\* \\* \\*
+192.168.100.222,docker,/opt,1 2 \\* \\* \\*
