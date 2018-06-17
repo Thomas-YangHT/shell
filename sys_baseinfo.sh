@@ -15,12 +15,5 @@ SERIESNO=`dmidecode -s system-serial-number`
 echo $HOSTNAME, $KERNEL, $TZ, $MAC, $IP, $CPU, $MEMORY, $DISK, $SERIESNO
 
 sql="insert into baseinfo(hostname, kernel, tz, mac, ip, cpu, memory, disk, seriesno) \
-     select \"$HOSTNAME\",\"$KERNEL\",\"$TZ\", \"$MAC\", \"$IP\", \"$CPU\",  \"$MEMORY\", \"$DISK\", \"$SERIESNO\" \
-	 from baseinfo \
-	 where NOT EXISTS( \
-	    select mac \
-        from baseinfo \
-	    where mac=\"$MAC\" \
-     )" 
+     select \"$HOSTNAME\",\"$KERNEL\",\"$TZ\", \"$MAC\", \"$IP\", \"$CPU\",  \"$MEMORY\", \"$DISK\", \"$SERIESNO\" "
 echo $sql|mysql -uyanght -D monitor -pyanght -h 192.168.31.222
-return 0

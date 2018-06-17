@@ -47,6 +47,8 @@ func_SAVETODB(){
   sql1="LOAD DATA LOCAL INFILE '$FILE.csv'  INTO TABLE portstatusinfo CHARACTER SET utf8  FIELDS TERMINATED BY ',' (time, ip,portstatus);"
   echo $sql1|mysql -uyanght -D monitor -pyanght -h $MYHOST
 }
+
+#分组比对配置，生成可读性强的页面
 func_CHKCSV(){
     #先输出table的表头信息，包括时间、IP、端口号列表
     more monports.csv |awk -F, -v n=$1 '$1==n{p=$2;split(p,a," ");printf "time,ip,";len=length(a);for(i=1;i<=len;i++){if(i<len){printf a[i]",";}else{print a[i]""}}}' >$FILE.result

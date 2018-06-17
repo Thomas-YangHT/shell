@@ -1,0 +1,16 @@
+#/etc/docker/daemon.json
+{
+  "bip": "172.17.0.1/24",
+  "dns": ["192.168.100.222","172.17.0.1"],
+  "registry-mirrors": ["https://fvhsob7q.mirror.aliyuncs.com"],
+  "hosts" : ["unix:///var/run/docker.sock","tcp://0.0.0.0:2375"],
+  "add-registry" : "192.168.100.222:5000",
+  "insecure-registries" : ["192.168.100.222:5000"]
+}
+#/etc/sysconfig/docker:
+
+#OPTIONS='--selinux-enabled -H unix:///var/run/docker.sock -H tcp://0.0.0.0:23
+75 --add-registry=192.168.100.222:5000 --insecure-registry 192.168.100.222:50
+00 --log-driver=journald --signature-verification=false'
+#ADD_REGISTRY='--add-registry 192.168.174.128:5000'
+#INSECURE_REGISTRY='--insecure-registry 192.168.174.128:5000'

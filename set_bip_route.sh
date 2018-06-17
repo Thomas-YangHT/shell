@@ -41,7 +41,7 @@ func_SET_BIP(){
 #设置到其它docker主机容器的路由
 func_SET_ROUTE(){
 	length=${#IPS[@]}
-	rows=length/2
+	rows=$[$length / 2]
 	for((i=1;i<$rows;i++));
 	do
 	   DKNET=`echo ${IPS[$i*2+1]}|sed 's#\(.*\)\.\(.*\)/#\1.0/#'`

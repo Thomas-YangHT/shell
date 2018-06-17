@@ -1,3 +1,6 @@
+#!/usr/bin/bash
+#collect.sh
+#
 ##收集服务器基础性能数据
 #DATE时间戳
 TIMESTAMP=`date '+%Y-%m-%d %H:%M:%S'`
@@ -15,9 +18,9 @@ MEMUSED=${memory[1]}
 
 #网络进出带宽, RX, TX, 单位字节B
 eth=eth0
-netpre=(`/usr/sbin/ifconfig eth0| grep bytes|awk '{print $5}'`)
+netpre=(`/usr/sbin/ifconfig $eth| grep bytes|awk '{print $5}'`)
 sleep 1
-netnext=(`/usr/sbin/ifconfig eth0| grep bytes|awk '{print $5}'`)
+netnext=(`/usr/sbin/ifconfig $eth| grep bytes|awk '{print $5}'`)
 RX=$((${netnext[0]}-${netpre[0]}))
 TX=$((${netnext[1]}-${netpre[1]}))
 
@@ -45,6 +48,7 @@ done
 sql1="LOAD DATA LOCAL INFILE '/tmp/netports.csv'  INTO TABLE ports CHARACTER SET utf8  FIELDS TERMINATED BY ',' (timestamp, ip,protocol, ipl, port, pid, procname);"
 sql2="insert into basemon(timestamp, ip, cpuidle,memtotal,memused,rx,tx,diskrootrate,ioawait,ioutil) values(\"$TIMESTAMP\",\"$IP\",$CPUIDLE, $MEMTOTAL, $MEMUSED, $RX,  $TX, $DISKROOTRATE, $IOAWAIT, $IOUTIL)"
 sql3="delete from ports where ip='$IP'"
-echo $sql3|mysql -uyanght -D monitor -pyanght -h 192.168.31.222
-echo $sql1|mysql -uyanght -D monitor -pyanght -h 192.168.31.222
-echo $sql2|mysql -uyanght -D monitor -pyanght -h 192.168.31.222
+MYHOST="192.168.31.140"
+echo $sql3|mysql -uyanght -D monitor -pyanght -h $MYHOST
+echo $sql1|mysql -uyanght -D monitor -pyanght -h $MYHOST
+echo $sql2|mysql -uyanght -D monitor -pyanght -h $MYHOST
