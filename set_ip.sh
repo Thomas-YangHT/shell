@@ -30,6 +30,7 @@ func_GET(){
 	  SET_IP2="192.168.41.$SUFFIX"
 	  FILENAME1="/etc/sysconfig/network-scripts/ifcfg-eth1"
 	  FILENAME2="/etc/sysconfig/network-scripts/ifcfg-eth2"
+	  echo "SUFFIX: $SUFFIX;set_ip1:$SET_IP1;set_ip2:$SET_IP2"  
     else 
       echo 2
       return 2
