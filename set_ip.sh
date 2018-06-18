@@ -28,6 +28,8 @@ func_GET(){
 	  SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
 	  SET_IP1="192.168.31.$SUFFIX"
 	  SET_IP2="192.168.41.$SUFFIX"
+	  FILENAME1="/etc/sysconfig/network-scripts/ifcfg-eth1"
+	  FILENAME2="/etc/sysconfig/network-scripts/ifcfg-eth2"
     else 
       echo 2
       return 2
@@ -70,7 +72,7 @@ EOF
 
 #设定eth1的配置文件
 func_FILE1(){
-cat >$FILENAME <<EOF
+cat >$FILENAME1 <<EOF
 TYPE=Ethernet
 BOOTPROTO=none
 DEFROUTE=yes
@@ -96,7 +98,7 @@ EOF
 
 #设定eth2的配置文件
 func_FILE2(){
-cat >$FILENAME <<EOF
+cat >$FILENAME2 <<EOF
 TYPE=Ethernet
 BOOTPROTO=none
 DEFROUTE=yes
