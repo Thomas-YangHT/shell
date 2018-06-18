@@ -5,7 +5,7 @@
 #从数据库取得设置参数
 func_GET(){
     FILENAME="/etc/sysconfig/network-scripts/ifcfg-eth0"
-	MYHOST="192.168.31.222"
+	MYHOST="192.168.31.140"
     #UUID=`nmcli c|grep eth0|awk '{print $2}'`
 	UUID=`grep -Po "UUID=\K.*" $FILENAME`
     MAC=`ifconfig eth0|grep ether|awk '{print $2}'`
