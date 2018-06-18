@@ -132,7 +132,8 @@ do
  echo $NODE":"
  ssh $NODE docker exec mgr ceph -s
 done
-#
+
+#没有开启dashboard未解决
 docker exec mon ceph mgr dump
 docker exec mgr ceph mgr module enable dashboard
 
@@ -143,6 +144,7 @@ mount -t ceph $node2:6789:/ /mnt/mycephfs -o name=admin,secret=<key>
 umount /mnt/mycephfs
 mount -t ceph $node1:6789:/ /mnt/mycephfs -o name=admin,secretfile=/etc/ceph/admin.secret
 umount /mnt/mycephfs
+#secretfile报错未解决
 
 #s3client test rgw:
 wget "https://gist.githubusercontent.com/kairen/e0dec164fa6664f40784f303076233a5/raw/33add5a18cb7d6f18531d8d481562d017557747c/s3client"
