@@ -24,6 +24,10 @@ func_GET(){
       SET_prefix=${RESULTS[$i+2]}
       SET_gwip=${RESULTS[$i+3]}
       SET_dns1=${RESULTS[$i+4]}
+	  #add
+	  SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
+	  SET_IP1="192.168.31.$SUFFIX"
+	  SET_IP2="192.168.41.$SUFFIX"
     else 
       echo 2
       return 2
@@ -55,7 +59,7 @@ ONBOOT=yes
 UUID=$UUID
 HWADDR=$MAC
 DNS1=$SET_dns1
-DNS2=192.168.100.2
+DNS2=223.5.5.5
 IPADDR=$SET_ip
 PREFIX=$SET_prefix
 GATEWAY=$SET_gwip
@@ -63,6 +67,60 @@ PROXY_METHOD=none
 BROWSER_ONLY=no
 EOF
 }
+
+#设定eth1的配置文件
+func_FILE1(){
+cat >$FILENAME <<EOF
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+NAME=eth1
+DEVICE=eth1
+ONBOOT=yes
+UUID=$UUID
+HWADDR=$MAC
+#DNS1=$SET_dns1
+#DNS2=223.5.5.5
+IPADDR=$SET_ip1
+PREFIX=$SET_prefix
+#GATEWAY=$SET_gwip
+PROXY_METHOD=none
+BROWSER_ONLY=no
+EOF
+}
+
+#设定eth2的配置文件
+func_FILE2(){
+cat >$FILENAME <<EOF
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+NAME=eth2
+DEVICE=eth2
+ONBOOT=yes
+UUID=$UUID
+HWADDR=$MAC
+#DNS1=$SET_dns1
+#DNS2=223.5.5.5
+IPADDR=$SET_ip2
+PREFIX=$SET_prefix
+#GATEWAY=$SET_gwip
+PROXY_METHOD=none
+BROWSER_ONLY=no
+EOF
+}
+
+
 #重启相关服务
 func_RESTART(){
     systemctl stop NetworkManager
@@ -115,6 +173,8 @@ func_SET_IP(){
         #备份eth0配置
         cp $FILENAME $FILENAME.bak
         func_FILE
+		func_FILE1
+		func_FILE2
         func_RESTART
     	func_REPORT
     fi
@@ -123,3 +183,4 @@ func_SET_IP(){
 func_GET
 func_SET_HOSTNAME
 func_SET_IP
+
