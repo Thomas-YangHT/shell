@@ -2,25 +2,26 @@
 pip install -U docker-py
 pip install kolla-ansible
 #CentOS
-cp /usr/share/kolla-ansible/etc_examples/kolla/* /etc/kolla
-#CentOS
+cp -r /usr/share/kolla-ansible/etc_examples/kolla /etc/kolla
 cp /usr/share/kolla-ansible/ansible/inventory/* .
 
-#pull 镜像
+#pull 镜像 方法一
 
-kolla-ansible pull
-https://hub.docker.com/u/kolla/
-docker search kolla|grep -P "^kolla/centos.*"|awk '{print "docker pull "$1":ocata"}'|sh
+#kolla-ansible pull
+#https://hub.docker.com/u/kolla/
+#docker search kolla|grep -P "^kolla/centos.*"|awk '{print "docker pull "$1":ocata"}'|sh
 
+#镜像准备 方法二：
+#docker load -i 
 mkdir -p /etc/kolla/config/nova/
 cat << EOF > /etc/kolla/config/nova/nova-compute.conf
 [libvirt]
 virt_type=qemu
 EOF
 
-vi /etc/kolla/globals.yml
+#vi /etc/kolla/globals.yml
 #kolla_internal_vip_address: "192.168.31.203"
-sed -i.ori 's/kolla_internal_vip_address:.*/kolla_internal_vip_address: "192.168.122.203"/' /etc/kolla/globals.yml
+sed -i.ori 's/kolla_internal_vip_address:.*/kolla_internal_vip_address: "192.168.31.203"/' /etc/kolla/globals.yml
 
 kolla-ansible prechecks -i ./all-in-one
 #Deploy OpenStack.
