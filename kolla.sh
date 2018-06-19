@@ -1,6 +1,11 @@
 
 pip install -U docker-py
-pip install kolla-ansible
+cd /home
+git clone http://git.trystack.cn/openstack/kolla-ansible -b stable/ocata
+cd kolla-ansible
+pip install .
+#pip install . -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 #CentOS
 cp -r /usr/share/kolla-ansible/etc_examples/kolla /etc/kolla
 cp /usr/share/kolla-ansible/ansible/inventory/* .
@@ -17,11 +22,26 @@ mkdir -p /etc/kolla/config/nova/
 cat << EOF > /etc/kolla/config/nova/nova-compute.conf
 [libvirt]
 virt_type=qemu
+cpu_mode = none
 EOF
 
 #vi /etc/kolla/globals.yml
 #kolla_internal_vip_address: "192.168.31.203"
-sed -i.ori 's/kolla_internal_vip_address:.*/kolla_internal_vip_address: "192.168.31.203"/' /etc/kolla/globals.yml
+
+
+cd ~/shell;git pull
+grep -Pv "^#|^$" globals.yml.99cloud >/etc/kolla/globals.yml
+sed -i.ori 's/kolla_internal_vip_address:.*/kolla_internal_vip_address: "192.168.122.203"/' /etc/kolla/globals.yml
+sed -i.ori 's/docker_registry: "172.16.0.10:4000"/docker_registry: "192.168.31.140:5000"/'  /etc/kolla/globals.yml
+
+#for rabbitMQ:
+echo "192.168.122.11 kolla">>/etc/hosts
+
+
+kolla-genpwd
+#编辑 /etc/kolla/passwords.yml
+#keystone_admin_password: chenshake
+sed -i.ori 's/keystone_admin_password:.*/keystone_admin_password: yunwei.edu/' /etc/kolla/passwords.yml
 
 kolla-ansible prechecks -i ./all-in-one
 #Deploy OpenStack.
