@@ -1,7 +1,7 @@
 #命令行启动vmware workstation vm:
 vmrun -T ws start /mnt/vms/docker1b/docker1b.vmx nogui
 
-virsh start kvm02
+virsh start kvm01
 
 
 #停止；suspend;resume
@@ -13,3 +13,5 @@ virt-clone -o node1 -n node2 -f /mnt/kvm/centos7-node2.img /mnt/kvm/node2-osd.im
 #随开机启动
 virsh autostart node1
 
+#SNAT
+iptables -t nat -A POSTROUTING -s 192.168.41.0/24 -d !192.168.41.0/24 -o wlan0 -j MASQUERADE

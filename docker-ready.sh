@@ -12,7 +12,7 @@ EOF
 #安装Docker 17.05
 
 yum install docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
-#yum install docker-engine-1.12.5-1 docker-engine-selinux-1.12.5-1
+#yum install docker-engine-1.12.5 docker-engine-selinux-1.12.5
 
 #设置docker
 
@@ -27,10 +27,11 @@ EOF
 #注意修改IP
 
 #将本机eth0 ip 设为registry仓库IP，适用于单机安装kolla
-IP="192.168.31.10"
+IP="192.168.31.140"
 #IP=`ip addr show dev eth0|grep -Po 'inet \K\w*.\w*.\w*.\w*'`
-sed -i.ori "s#ExecStart=/usr/bin/dockerd#ExecStart=/usr/bin/dockerd --insecure-registry $IP:4000#" /usr/lib/systemd/system/docker.service
-
+sed -i.ori "s#ExecStart=/usr/bin/dockerd#ExecStart=/usr/bin/dockerd --insecure-registry $IP:5000#" /usr/lib/systemd/system/docker.service
+systemctl daemon-reload
+systemctl restart docker
 #17.5
 #此为设置单独的registry ip
 IP="192.168.31.140"
