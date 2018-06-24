@@ -1,0 +1,9 @@
+ yum install libguestfs libguestfs-tools -y
+ #修改KVM虚机镜像中的文件的几种方法
+ #https://blog.csdn.net/watermelonbig/article/details/49409707
+ #挂载光驱ISO
+ #https://blog.csdn.net/tpiperatgod/article/details/46459929
+ #利用img文件做宿主机和虚拟机之间共享
+ #http://blog.chinaunix.net/uid-12265446-id-4397338.html
+ #XML里分配固定IP
+ #https://blog.csdn.net/wesleyflagon/article/details/50781857

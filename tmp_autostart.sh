@@ -15,3 +15,16 @@ virsh autostart node1
 
 #SNAT
 iptables -t nat -A POSTROUTING -s 192.168.41.0/24 -d !192.168.41.0/24 -o wlan0 -j MASQUERADE
+
+#veth对
+ip link add veth01 type veth peer name veth10
+brctl addif br0 veth01
+brctl addif br1 veth10
+brctl show
+#ping ...
+ip link add veth12 type veth peer name veth21
+brctl addif br1 veth12
+brctl addif br2 veth21
+ip link set veth12 up
+ip link set veth21 up
+brctl show

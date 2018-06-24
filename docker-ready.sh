@@ -11,7 +11,7 @@ EOF
 
 #安装Docker 17.05
 
-yum install docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
+yum update docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
 #yum install docker-engine-1.12.5 docker-engine-selinux-1.12.5
 
 #设置docker
@@ -40,10 +40,6 @@ sed -i.ori "s#ExecStart=.*#ExecStart=/usr/bin/dockerd $OPTIONS#" /usr/lib/system
 systemctl daemon-reload
 systemctl restart docker
 
-#重启服务
-
-systemctl daemon-reload
-systemctl restart docker
 
 #将kolla的镜相保存到私有镜相库示例：
 #docker tag $1":"$2 localhost:4000/$1":"$2
