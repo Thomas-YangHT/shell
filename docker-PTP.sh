@@ -15,14 +15,4 @@ centos-source-trove-conductor \
 centos-source-trove-taskmanager \
 centos-source-cloudkitty-api \
 centos-source-cloudkitty-processor"
-IMAGES="centos-source-cloudkitty-api \
-centos-source-cloudkitty-processor"
-IMAGE_NAME=""
-REGISTRY="192.168.31.140:5000"
-for IMAGE_NAME in $IMAGES
-do
-#[ "$1" ] && IMAGE_NAME=$1 || exit 1  
-docker pull kolla/$IMAGE_NAME:ocata
-docker tag kolla/$IMAGE_NAME:ocata $REGISTRY/99cloud/$IMAGE_NAME:4.0.2.1
-docker push $REGISTRY/99cloud/$IMAGE_NAME:4.0.2.1
-done
+http://www.cnblogs.com/mengkzhaoyun/p/7599695.html

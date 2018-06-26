@@ -58,10 +58,10 @@ cd ~/kolla-ansible/tools/
 #EXT_NET_CIDR='172.16.41.0/24'
 #EXT_NET_RANGE='start=172.16.41.180,end=172.16.41.199'
 #EXT_NET_GATEWAY='172.16.41.1'
-sed -i.ori -e  's/EXT_NET_CIDR=.*/EXT_NET_CIDR='\''172.16.41.0\/24'\''/' \
--e  's/EXT_NET_RANGE=.*/EXT_NET_RANGE='\''start=172.16.41.180,end=172.16.41.199'\''/' \
--e  's/EXT_NET_GATEWAY=.*/EXT_NET_GATEWAY='\''172.16.41.1'\''/' \
-kolla-ansible/tools/init-runonce
+sed -i.ori -e  's/EXT_NET_CIDR=.*/EXT_NET_CIDR='\''192.168.41.0\/24'\''/' \
+-e  's/EXT_NET_RANGE=.*/EXT_NET_RANGE='\''start=192.168.41.180,end=192.168.41.199'\''/' \
+-e  's/EXT_NET_GATEWAY=.*/EXT_NET_GATEWAY='\''192.168.41.1'\''/' \
+ init-runonce
 #yum remove python-ipaddress -y;yum install python-pip -y
 pip install -U python-openstackclient python-neutronclient
 ./init-runonce
