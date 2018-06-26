@@ -1,6 +1,6 @@
 
 pip install -U docker-py
-cd /home
+cd ~
 git clone http://git.trystack.cn/openstack/kolla-ansible -b stable/ocata
 cd kolla-ansible
 pip install .
@@ -24,7 +24,7 @@ cat << EOF > /etc/kolla/config/nova/nova-compute.conf
 virt_type=qemu
 cpu_mode = none
 EOF
-
+   
 #vi /etc/kolla/globals.yml
 #kolla_internal_vip_address: "192.168.31.203"
 
@@ -70,9 +70,15 @@ pip install -U python-openstackclient python-neutronclient
 #reinstall:
 docker stop `docker ps -q`
 docker rm `docker ps -qa`
+#docker volume prune
 rm -rf /var/lib/docker/volumes/*
 systemctl restart docker
 rm -rf /etc/kolla/*
+cp -r /etc/kolla_multi/config /etc/kolla
+cp /etc/kolla_multi/globals.yml /etc/kolla
+cp /etc/kolla_multi/passwords.yml /etc/kolla
+kolla-ansible deploy -i ./multinode
+
 cp -r /etc/kollabak/config /etc/kolla
 cp /etc/kollabak/globals.yml /etc/kolla
 cp /etc/kollabak/passwords.yml /etc/kolla
@@ -106,3 +112,16 @@ tempest_flavor_ref_id:
 tempest_public_network_id:
 tempest_floating_network_name:
 #enable_haproxy: "no" 
+
+
+#ceph: 
+#为每个存储结点打标签：
+parted /dev/vdb -s -- mklabel gpt mkpart KOLLA_CEPH_OSD_BOOTSTRAP 1 -1
+#
+cat >/etc/kolla/config/ceph.conf <<EOF
+[global]
+osd pool default size = 3
+osd pool default min size = 2
+EOF
+#
+hostnamectl set-hostname control0X

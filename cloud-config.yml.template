@@ -1,0 +1,32 @@
+#cloud-config  
+
+hostname: coreos  
+
+coreos:    
+  etcd:      
+    addr: $private_ipv4:4001  
+    peer-addr: $private_ipv4:7001  
+  units:  
+    - name: etcd.service  
+      command: start  
+    - name: fleet.service  
+      command: start  
+    - name: static.network  
+      content: |  
+        [Match]  
+        Name=enp3s0  
+
+        // 这里配置网络环境，设置静态ip。官方文档也是这么写的。
+        [Network] 
+        Address=192.168.16.99/24  
+        Gateway=192.168.16.100  
+        DNS=8.8.8.8
+        DNS=114.114.114.114  
+users:    
+  - name: core  
+    ssh-authorized-keys:   
+      - # ssh rsa 这里插入ssh的public key，用于安装后远程ssh连接时候使用。
+
+  - groups:  
+      - sudo  
+      - docker
