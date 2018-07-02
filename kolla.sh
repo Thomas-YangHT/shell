@@ -74,11 +74,12 @@ docker rm `docker ps -qa`
 rm -rf /var/lib/docker/volumes/*
 systemctl restart docker
 rm -rf /etc/kolla/*
+#multinode
 cp -r /etc/kolla_multi/config /etc/kolla
 cp /etc/kolla_multi/globals.yml /etc/kolla
 cp /etc/kolla_multi/passwords.yml /etc/kolla
 kolla-ansible deploy -i ./multinode
-
+#allinone
 cp -r /etc/kollabak/config /etc/kolla
 cp /etc/kollabak/globals.yml /etc/kolla
 cp /etc/kollabak/passwords.yml /etc/kolla
@@ -125,3 +126,8 @@ osd pool default min size = 2
 EOF
 #
 hostnamectl set-hostname control0X
+
+#cinder lvm
+dd if=/dev/urandom of=/dev/vdb bs=512 count=64
+pvcreate /dev/vdb
+vgcreate cinder-volumes /dev/vdb

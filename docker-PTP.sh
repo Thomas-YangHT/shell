@@ -14,5 +14,12 @@ centos-source-trove-api \
 centos-source-trove-conductor \
 centos-source-trove-taskmanager \
 centos-source-cloudkitty-api \
-centos-source-cloudkitty-processor"
-http://www.cnblogs.com/mengkzhaoyun/p/7599695.html
+centos-source-cloudkitty-processor \
+centos-source-iscsid "
+IMAGES="centos-source-tgtd"
+for IMAGE in $IMAGES
+do
+  docker pull kolla/$IMAGE:ocata
+  docker tag  kolla/$IMAGE:ocata 192.168.31.140:5000/99cloud/$IMAGE:4.0.2.1
+  docker push 192.168.31.140:5000/99cloud/$IMAGE:4.0.2.1
+done 
