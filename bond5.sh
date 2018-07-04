@@ -90,6 +90,7 @@ EOF
 
 #systemctl restart network
 #ping $GATE -c 1
+systemctl enable NetworkManager
 reboot
 #check: speed 2000MB/s
 # ethtool bond0
