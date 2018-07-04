@@ -3,7 +3,8 @@
 #此脚本安装 KVM虚拟化环境，并做基本系统设置
 #
 yum install -y epel-release wget
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+#wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+cd /etc/yum.repos.d; wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
 yum update
 yum install -y net-tools sysstat vim curl git chrony
 yum install -y qemu-kvm libvirt virt-install bridge-utils 
@@ -23,7 +24,9 @@ systemctl disable firewalld
 sed  -i  '/UseDNS/i UseDNS=no' /etc/ssh/sshd_config
 #sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grup2/grub.conf
 #单挂载/boot/efi的情况，grub.cfg位置变为：/boot/efi/EFI/centos/grub.cfg
-sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/efi/EFI/centos/grub.cfg
+#sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/efi/EFI/centos/grub.cfg
+
+#sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grub2/grub.cfg
 echo 'export PS1="\[\e[32;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
 echo 'LANG="zh_CN.UTF-8"' >/etc/locale.conf
 echo 'LC_ALL="zh_CN.UTF-8"' >>/etc/locale.conf
@@ -34,8 +37,11 @@ ln -s  /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 sed -i.ori 's/enforcing/disabled/' /etc/selinux/config
 sed -i.ori -e '$a\bindcmdaddress 127.0.0.1\nbindcmdaddress ::1\nlocal stratum 10\n' /etc/chrony.conf
 sed -i.ori '$a\net.ipv4.ip_forward=1' /etc/sysctl.conf
+
+#hostnamectl set-hostname yunweiX
+
 #修改IP为你的登陆主机，没有则忽略
-mkdir ~/.ssh;cd ~/.ssh;scp 192.168.31.140:/root/.ssh/id_rsa* .
+mkdir ~/.ssh;cd ~/.ssh;scp -P 30022 192.168.31.140:/root/.ssh/id_rsa* .
 cat id_rsa.pub >>authorized_keys
 
 #网络 IP没法通用,需要单独修改,后续改成自动注册和修改IP
