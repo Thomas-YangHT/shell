@@ -7,10 +7,12 @@ IP3=192.168.253.1
 IP4=192.168.252.1
 IP5=10.20.0.1
 GATE=172.16.0.1
-DNS1=172.16.254.254
+DNS1=172.16.254.1
 DNS2=223.5.5.5
-ETH1=eth1
-ETH2=eth2
+ETH1=eth0
+ETH2=eth1
+ETH3=eth2
+ETH4=eth3
 MODE=5 #blance-tlb
 #balance-rr(0)
 #active-backup(1)
@@ -48,6 +50,24 @@ cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-$ETH2
 TYPE=Ethernet
 BOOTPROTO=none
 DEVICE=$ETH2
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+EOF
+
+cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-$ETH3
+TYPE=Ethernet
+BOOTPROTO=none
+DEVICE=$ETH3
+ONBOOT=yes
+MASTER=bond0
+SLAVE=yes
+EOF
+
+cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-$ETH4
+TYPE=Ethernet
+BOOTPROTO=none
+DEVICE=$ETH4
 ONBOOT=yes
 MASTER=bond0
 SLAVE=yes
