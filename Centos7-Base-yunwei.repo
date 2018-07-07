@@ -1,0 +1,30 @@
+[base]
+name=CentOS-$releasever - Base - yunwei.edu
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
+baseurl=http://download.yunwei.edu/centos/$releasever/os/$basearch/
+gpgcheck=1
+gpgkey=http://download.yunwei.edu/centos/RPM-GPG-KEY-CentOS-7
+
+#released updates
+[updates]
+name=CentOS-$releasever - Updates - yunwei.edu
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
+baseurl=http://download.yunwei.edu/centos/$releasever/updates/$basearch/
+gpgcheck=1
+gpgkey=http://download.yunwei.edu/centos/RPM-GPG-KEY-CentOS-7
+
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras - yunwei.edu
+#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
+baseurl=http://download.yunwei.edu/centos/$releasever/extras/$basearch/
+gpgcheck=1
+gpgkey=http://download.yunwei.edu/centos/RPM-GPG-KEY-CentOS-7
+
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus - yunwei.edu
+baseurl=http://download.yunwei.edu/centos/$releasever/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://download.yunwei.edu/centos/RPM-GPG-KEY-CentOS-7

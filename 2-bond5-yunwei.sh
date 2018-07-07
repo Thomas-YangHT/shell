@@ -1,6 +1,8 @@
 #!/bin/bash
 #创建一个名为bond0的链路接口
 #修改IP和网卡名再运行
+rm -rf /etc/sysconfig/network-scripts/ifcfg-*
+rm -rf /etc/sysconfig/network-scripts/route-*
 IP=172.16.254.1
 IP2=192.168.254.1
 IP3=192.168.253.1
@@ -90,10 +92,10 @@ PREFIX3=24
 #DNS2=$DNS2
 EOF
 
-#systemctl restart network
+systemctl restart network
 #ping $GATE -c 1
 systemctl enable NetworkManager
-reboot
+#reboot
 #check: speed 2000MB/s
 # ethtool bond0
 # brctl show
