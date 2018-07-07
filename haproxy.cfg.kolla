@@ -1,0 +1,156 @@
+global
+  chroot /var/lib/haproxy
+  user haproxy
+  group haproxy
+  daemon
+  log 192.168.31.11:5140 local1
+  maxconn 4000
+  stats socket /var/lib/kolla/haproxy/haproxy.sock
+
+defaults
+  log global
+  mode http
+  option redispatch
+  option httplog
+  option forwardfor
+  retries 3
+  timeout http-request 10s
+  timeout queue 1m
+  timeout connect 10s
+  timeout client 1m
+  timeout server 1m
+  timeout check 10s
+
+listen stats
+   bind 192.168.31.11:1984
+   mode http
+   stats enable
+   stats uri /
+   stats refresh 15s
+   stats realm Haproxy\ Stats
+   stats auth openstack:ij91F7CVBxf60UJWUnRbUpWsE1MpZ6t0p5qNbKqG
+
+listen rabbitmq_management
+  bind 192.168.31.203:15672
+  server kolla 192.168.31.11:15672 check inter 2000 rise 2 fall 5
+
+
+listen keystone_internal
+  bind 192.168.31.203:5000
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:5000 check inter 2000 rise 2 fall 5
+
+listen keystone_admin
+  bind 192.168.31.203:35357
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:35357 check inter 2000 rise 2 fall 5
+
+listen glance_registry
+  bind 192.168.31.203:9191
+  server kolla 192.168.31.11:9191 check inter 2000 rise 2 fall 5
+
+listen glance_api
+  bind 192.168.31.203:9292
+  timeout client 6h
+  timeout server 6h
+  server kolla 192.168.31.11:9292 check inter 2000 rise 2 fall 5
+
+listen nova_api
+  bind 192.168.31.203:8774
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:8774 check inter 2000 rise 2 fall 5
+
+listen nova_metadata
+  bind 192.168.31.203:8775
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:8775 check inter 2000 rise 2 fall 5
+
+listen placement_api
+  bind 192.168.31.203:8780
+  http-request del-header X-Forwarded-Proto
+  server kolla 192.168.31.11:8780 check inter 2000 rise 2 fall 5
+
+listen nova_novncproxy
+  bind 192.168.31.203:6080
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  http-request set-header X-Forwarded-Proto https if { ssl_fc }
+  server kolla 192.168.31.11:6080 check inter 2000 rise 2 fall 5
+
+
+listen neutron_server
+  bind 192.168.31.203:9696
+  server kolla 192.168.31.11:9696 check inter 2000 rise 2 fall 5
+
+listen horizon
+  bind 192.168.31.203:80
+  balance source
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:80 check inter 2000 rise 2 fall 5
+
+
+
+
+
+
+listen heat_api
+  bind 192.168.31.203:8004
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:8004 check inter 2000 rise 2 fall 5
+
+listen heat_api_cfn
+  bind 192.168.31.203:8000
+  http-request del-header X-Forwarded-Proto if { ssl_fc }
+  server kolla 192.168.31.11:8000 check inter 2000 rise 2 fall 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# (NOTE): This defaults section deletes forwardfor as recommended by:
+#         https://marc.info/?l=haproxy&m=141684110710132&w=1
+
+defaults
+  log global
+  mode http
+  option redispatch
+  option httplog
+  retries 3
+  timeout http-request 10s
+  timeout queue 1m
+  timeout connect 10s
+  timeout client 1m
+  timeout server 1m
+  timeout check 10s
+
+listen mariadb
+  mode tcp
+  timeout client 3600s
+  timeout server 3600s
+  option tcplog
+  option tcpka
+  option mysql-check user haproxy post-41
+  bind 192.168.31.203:3306
+  server kolla 192.168.31.11:3306 check inter 2000 rise 2 fall 5 
