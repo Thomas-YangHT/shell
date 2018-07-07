@@ -1,0 +1,6 @@
+#http://www.mamicode.com/info-detail-2269899.html
+物理机重启、关机等操作
+# racadm serveraction powerup                                               开启服务器
+# racadm serveraction powerdown                                          关闭服务器
+# racadm serveraction powercycle                                           关机后再开启服务器
+# racadm serveraction powerstatus                                         查看服务器状态
