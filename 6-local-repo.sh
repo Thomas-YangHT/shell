@@ -7,7 +7,7 @@ SOURCE="rsync://mirrors.kernel.org/centos"
 #http://mirrors.neusoft.edu.cn
 
 #yum install -y createrepo
-mkdir -p $DIR/{os,extra,updates}
+mkdir -p $DIR/7/{os,extra,updates}
 #createrepo -pdo /usr/local/apache/htdocs/x86_64 $DIR/os
 #createrepo -pdo /usr/local/apache/htdocs/extra  $DIR/extra
 #createrepo -pdo /usr/local/apache/htdocs/update $DIR/updates
