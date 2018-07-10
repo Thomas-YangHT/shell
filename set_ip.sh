@@ -170,6 +170,8 @@ func_SET_IP(){
     #检查新设定是否有变化,避免重复修改
     j=`cat $FILENAME|grep -P "$SET_ip|$SET_gwip|$SET_dns1|$SET_prefix"|wc -l`
     if [ $(($i-1)) = $j ];then 
+        echo "i:"$(($i-1))
+        echo "j:"$j
         echo 3
     else 
         echo 4
