@@ -2,16 +2,17 @@
 #VXLAN SHELL
 HOST1_IP="192.168.31.253"
 HOST2_IP="192.168.31.99"
-VXIP1="10.10.20.1"
-VXIP2="10.10.20.2"
+VXIP1="10.10.10.1"
+VXIP2="10.10.10.2"
 DEV='br0'
-VXLAN_ID=200
+VXLAN_ID=100
 DSTPORT=4789
-VXLAN_NAME="vxlan20"
+VXLAN_NAME="vxlan10"
 HOST_IP=`ip addr show dev $DEV|grep -Po 'inet \K\w*.\w*.\w*.\w*'`
 REMOTE_IP=''
 [ "`echo $HOST_IP|grep $HOST1_IP`" ] && REMOTE_IP="$HOST2_IP" && VXIP="$VXIP1"
 [ "`echo $HOST_IP|grep $HOST2_IP`" ] && REMOTE_IP="$HOST1_IP" && VXIP="$VXIP2"
+echo "host_ip: $HOST_IP remote_ip:$REMOTE_IP">/root/br_vx.log
 
 if [ "$REMOTE_IP" ]
 then

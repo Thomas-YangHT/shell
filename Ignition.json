@@ -1,0 +1,81 @@
+{
+  "ignition": {
+    "config": {},
+    "security": {
+      "tls": {}
+    },
+    "timeouts": {},
+    "version": "2.2.0"
+  },
+  "networkd": {
+    "units": [
+      {
+        "contents": "[Match]  \nName=ens33  \n\n#配置网络环境，设置静态ip。官方文档也是这么写的。\n[Network] \nAddress=192.168.100.10/24  \nGateway=192.168.100.2  \nDNS=223.5.5.5\nDNS=114.114.114.114  \n",
+        "name": "static.network"
+      }
+    ]
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "passwordHash": "d91cf98cde2367b277072a8bd28158b7ed9bfca2881eae4bf59081bbef406ba55a569c7b5244a8d1055b3c81806d4e2a507d3f164fa40f41c6bb0e86ee995923",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTVrS0pCy91x47yaOFBzBYl7eBcaCRssEVifShwdFmklkHUSCHJu9MDp6lhju3mO/5toRb5lCdEU2q5HnUN27Ohqt6Mf1ICrOMd0Add9G+pmJ/9Rtb0BnGZ5SK6QaJbGU3jxoPDpik+8zfVXDCK/YWjsulheLMXJI9wR+f9/y7SEZMfH3LkDVnKhurv/gNhcea7zJrAaoH5TQLBJeNxnPxPAinWt3jMLPoPU6boHwGdhyv3tO60rFJFloJ3fVYUSzypYpHUkB+7gFs3MGv6qz9V5eK+yotSph4pUOD5XjQ172MeXZc0qm3okqZj00YvkEd5nfhS7NBo5pMRh0WnvDx root@bsd"
+        ]
+      },
+      {
+        "groups": [
+          "sudo",
+          "docker"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "filesystem": "root",
+        "path": "/etc/hostname",
+        "contents": {
+          "source": "data:,coreos1",
+          "verification": {}
+        },
+        "mode": 420
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "dropins": [
+          {
+            "contents": "[Unit]\nRequires=coreos-metadata.service\nAfter=coreos-metadata.service\n\n[Service]\nEnvironmentFile=/run/metadata/coreos\nExecStart=\nExecStart=/usr/lib/coreos/etcd-wrapper $ETCD_OPTS \\\n  --name=\"${COREOS_CUSTOM_HOSTNAME}\" \\\n  --listen-peer-urls=\"http://${COREOS_CUSTOM_PRIVATE_IPV4}:2380\" \\\n  --listen-client-urls=\"http://0.0.0.0:2379\" \\\n  --initial-advertise-peer-urls=\"${COREOS_CUSTOM_PRIVATE_IPV4}:2380\" \\\n  --initial-cluster=\"%m=http://${COREOS_CUSTOM_PRIVATE_IPV4}:2380\" \\\n  --advertise-client-urls=\"${COREOS_CUSTOM_PRIVATE_IPV4}:2379\"",
+            "name": "20-clct-etcd-member.conf"
+          }
+        ],
+        "enable": true,
+        "name": "etcd-member.service"
+      },
+      {
+        "dropins": [
+          {
+            "contents": "[Service]\nExecStart=\nExecStart=/usr/lib/coreos/flannel-wrapper $FLANNEL_OPTS \\\n  --etcd-prefix=\"/coreos.com/network2\"",
+            "name": "20-clct-flannel.conf"
+          }
+        ],
+        "enable": true,
+        "name": "flanneld.service"
+      },
+      {
+        "dropins": [
+          {
+            "contents": "[Service]\nEnvironment=\"ETCD_NAME=infra0\"\n",
+            "name": "conf1.conf"
+          }
+        ],
+        "name": "etcd-member.service"
+      }
+    ]
+  }
+}

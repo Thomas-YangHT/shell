@@ -1,0 +1,54 @@
+#cloud-config
+
+storage:
+  files:
+    - filesystem: "root"
+      path:       "/etc/hostname"
+      mode:       0644
+      contents:
+        inline: coreos1
+
+etcd:
+  name:                        "{HOSTNAME}"
+  advertise_client_urls:       "{PRIVATE_IPV4}:2379"
+  initial_advertise_peer_urls: "{PRIVATE_IPV4}:2380"
+  listen_client_urls:          "http://0.0.0.0:2379"
+  listen_peer_urls:            "http://{PRIVATE_IPV4}:2380"
+  initial_cluster:             "%m=http://{PRIVATE_IPV4}:2380"
+
+flannel:
+      etcd_prefix: "/coreos.com/network2"
+
+systemd:
+  units:
+    - name: etcd-member.service
+      dropins:
+        - name: conf1.conf
+          contents: |
+            [Service]
+            Environment="ETCD_NAME=infra0"
+
+networkd:
+  units:
+    - name: static.network 
+      contents: |
+        [Match]  
+        Name=ens33  
+
+        #配置网络环境，设置静态ip。官方文档也是这么写的。
+        [Network] 
+        Address=192.168.100.10/24  
+        Gateway=192.168.100.2  
+        DNS=223.5.5.5
+        DNS=114.114.114.114  
+passwd:
+  users:    
+    - name: core  
+      password_hash: "d91cf98cde2367b277072a8bd28158b7ed9bfca2881eae4bf59081bbef406ba55a569c7b5244a8d1055b3c81806d4e2a507d3f164fa40f41c6bb0e86ee995923"
+      ssh_authorized_keys:   
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCTVrS0pCy91x47yaOFBzBYl7eBcaCRssEVifShwdFmklkHUSCHJu9MDp6lhju3mO/5toRb5lCdEU2q5HnUN27Ohqt6Mf1ICrOMd0Add9G+pmJ/9Rtb0BnGZ5SK6QaJbGU3jxoPDpik+8zfVXDCK/YWjsulheLMXJI9wR+f9/y7SEZMfH3LkDVnKhurv/gNhcea7zJrAaoH5TQLBJeNxnPxPAinWt3jMLPoPU6boHwGdhyv3tO60rFJFloJ3fVYUSzypYpHUkB+7gFs3MGv6qz9V5eK+yotSph4pUOD5XjQ172MeXZc0qm3okqZj00YvkEd5nfhS7NBo5pMRh0WnvDx root@bsd
+# ssh rsa 这里插入ssh的public key，用于安装后远程ssh连接时候使用。
+
+    - groups:  
+        - sudo  
+        - docker

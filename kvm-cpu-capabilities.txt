@@ -1,0 +1,27 @@
+KVM: Host CPU does not provide required features
+https://www.randomhacks.co.uk/kvm-host-cpu-does-not-provide-required-features/
+
+#手动修改XML:
+virsh capabilities
+virsh edit kvmbase
+
+#virt-manager: copy host cpu configuration
+
+#建立时使用-cpu host:
+virt-install \
+–connect qemu:///system \
+–name maas \
+–ram 1024 \
+–cpu host \
+–vcpus 2 \
+–nographics \
+–disk pool=maas,size=20,bus=virtio,sparse=false \
+–network bridge=virbr0 \
+–location http://us.archive.ubuntu.com/ubuntu/dists/trusty/main/installer-amd64/ \
+–initrd-inject=preseeds/preseed.cfg \
+–extra-args=”locale=en_US.UTF-8 console-setup/ask_detect=false keyboard-configuration/layoutcode=us file=file:/preseed.cfg vga=788 quiet console=tty0 utf8 console=ttyS0,115200″ \
+–os-type=linux \
+–force \
+–noreboot
+
+The option to note is –cpu host as it exposes the hosts cpu configuration to the guest
