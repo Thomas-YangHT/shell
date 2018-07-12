@@ -128,6 +128,6 @@ EOF
 hostnamectl set-hostname control0X
 
 #cinder lvm
-dd if=/dev/urandom of=/dev/vdb bs=512 count=64
+dd if=/dev/urandom of=/dev/vdb bs=1M count=20480
 pvcreate /dev/vdb
 vgcreate cinder-volumes /dev/vdb

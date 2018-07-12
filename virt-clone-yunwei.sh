@@ -1,5 +1,5 @@
 COUNT=10
-IPSTART=110
+IPSTART=120
 for ((i=$IPSTART;i<$IPSTART+$COUNT;i++));
 do
     virt-clone -o kvmbase -n kvm"$i" -f /export/kvm/kvm"$i".img
