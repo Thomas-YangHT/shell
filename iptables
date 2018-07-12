@@ -1,0 +1,26 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [359:31532]
+-A INPUT -i lo  -j ACCEPT
+#below 2 lines defense DNS attack
+#下面2行 假如防火墙重启起不来就注释掉，编译过内核不支持模块加载。内核里面不支持length
+#-I INPUT -p udp --sport 53 -m length --length 2077:65535 -j DROP
+#-I INPUT -p tcp --sport 53 -j DROP
+-A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+-A INPUT -s 192.168.250.0/24 -j ACCEPT
+-A INPUT -s 192.168.251.0/24 -j ACCEPT
+-A INPUT -s 192.168.252.0/24 -j ACCEPT
+-A INPUT -s 192.168.253.0/24 -j ACCEPT
+-A INPUT -s 192.168.254.0/24 -j ACCEPT
+-A INPUT -s 192.168.255.0/24 -j ACCEPT
+-A INPUT -s 172.16.0.11/16 -j ACCEPT
+-A INPUT -s 10.0.0.0/8 -j ACCEPT
+-A INPUT -p tcp -m tcp --sport 80 -j ACCEPT 
+-A INPUT -p tcp -m tcp --sport 443 -j ACCEPT 
+-A INPUT -p udp -m udp --sport 53 -j ACCEPT 
+-A INPUT -p udp -m udp --sport 123 -j ACCEPT
+-A INPUT -p icmp -j ACCEPT 
+-A INPUT -j DROP
+-A FORWARD -j DROP
+COMMIT
