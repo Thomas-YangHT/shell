@@ -40,7 +40,7 @@ ONBOOT=yes
 BONDING_OPTS="mode=$MODE miimon=100"
 BRIDGE=br0
 EOF
-
+ 
 cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-br1
 TYPE=Bridge
 BOOTPROTO=none
