@@ -15,7 +15,9 @@ cat <<EOF>/etc/sysconfig/iptables
 -A INPUT -s 192.168.253.0/24 -j ACCEPT
 -A INPUT -s 192.168.254.0/24 -j ACCEPT
 -A INPUT -s 192.168.255.0/24 -j ACCEPT
--A INPUT -s 172.16.0.0/16 -j ACCEPT
+-A INPUT -s 172.16.0.0/16 -p tcp --dport 22 -j ACCEPT
+-A INPUT -s 172.16.0.0/16 -p tcp --dport 30022 -j ACCEPT
+-A INPUT -s 172.16.0.11/16  -j ACCEPT
 -A INPUT -s 10.0.0.0/8 -j ACCEPT
 -A INPUT -p tcp -m tcp --sport 80 -j ACCEPT 
 -A INPUT -p tcp -m tcp --sport 443 -j ACCEPT 
