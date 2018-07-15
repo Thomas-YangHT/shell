@@ -22,8 +22,17 @@ def upload():
     put('/root/shell/set_ip-yunwei.sh','/root/')
     put('/root/shell/2-bond5-yunwei.sh','/root/')
     put('/root/shell/virt-clone-yunwei.sh','/root/')
-    put('/root/shell/*hosts','/root/')
-    put('/root/shell/*hosts','/root/')
+
+def upload-hosts():
+    put('/root/shell/all_hosts','/etc/hosts')
+
+def upload-iptables():
+    put('/root/shell/iptables','/etc/sysconfig/iptables')
+    put('/root/shell/iptables.init','/usr/libexec/iptables/iptables.init')
+    put('/root/shell/iptables.services','/usr/lib/systemd/system/iptables.service')
+
+def upload-yum-yunwei():
+    run('cd /etc/yum.repos.d;wget 192.168.254.251/shell/*yunwei.repo')    
 
 def exec_baseinfo():
     run('sh sys_baseinfo-yunwei.sh')
