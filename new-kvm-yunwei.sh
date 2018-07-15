@@ -5,8 +5,8 @@ if [ "$1" ];then
   touch ~/.ssh/config && echo -e "StrictHostKeyChecking=no\nUserKnownHostsFile=/dev/null" >> ~/.ssh/config
   ssh $kvmbase hostnamectl set-hostname $kvmname
   ssh $kvmbase ifconfig eth0 172.16.253.$(($RANDOM+1/254))
-  ssh $kvmbase ifconfig eth2
-  ssh $kvmbase "curl 192.168.254.5/shell/docker-registry-yunwei.sh|bash"
+  ssh $kvmbase ifconfig eth0
+  #ssh $kvmbase "curl 192.168.254.5/shell/docker-registry-yunwei.sh|bash"
 else
   echo "Usage: sh new-kvm-yunwei.sh KVMXXX"
 fi
