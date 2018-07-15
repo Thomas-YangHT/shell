@@ -3,6 +3,9 @@
 #sys_baseinfo.sh:   Get sys_base_info and report to CMDB
 #
 MYHOST="192.168.250.211"
+ping 192.168.250.211 -c 1 && MYHOST=192.168.250.211 || ping 192.168.254.211 -c 1 && MYHOST=192.168.254.211
+
+export LC_ALL=en_US.UTF-8
 HOSTNAME=`hostname`
 TZ=`tail -n 1 /etc/localtime`
 KERNEL=`uname -ro`
