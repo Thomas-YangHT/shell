@@ -3,7 +3,7 @@ from fabric.api import *
 
 def upload():
     put('/root/sys_baseinfo.sh','/root/')
-	put('/root/set_ip.sh','/root/')
+    put('/root/set_ip.sh','/root/')
 
 def exec_baseinfo():
     run('sh sys_baseinfo.sh')

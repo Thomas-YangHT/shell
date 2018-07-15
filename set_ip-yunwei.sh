@@ -5,9 +5,9 @@
 #从数据库取得设置参数
 func_GET(){
     FILENAME="/etc/sysconfig/network-scripts/ifcfg-eth0"
-	MYHOST="192.168.254.211"
+    MYHOST="192.168.254.211"
     #UUID=`nmcli c|grep eth0|awk '{print $2}'`
-	UUID=`grep -Po "UUID=\K.*" $FILENAME`
+    UUID=`grep -Po "UUID=\K.*" $FILENAME`
     MAC=`ifconfig eth0|grep ether|awk '{print $2}'`
   
     sql="select set_hostname, set_ip, set_prefix, set_gwip, set_dns1 \
@@ -24,13 +24,13 @@ func_GET(){
       SET_prefix=${RESULTS[$i+2]}
       SET_gwip=${RESULTS[$i+3]}
       SET_dns1=${RESULTS[$i+4]}
-	  #add
-	  SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
-	  SET_IP1="192.168.254.$SUFFIX"
-	  SET_IP2="192.168.253.$SUFFIX"
-	  FILENAME1="/etc/sysconfig/network-scripts/ifcfg-eth1"
-	  FILENAME2="/etc/sysconfig/network-scripts/ifcfg-eth2"
-	  echo "SUFFIX: $SUFFIX;set_ip1:$SET_IP1;set_ip2:$SET_IP2"  
+      #add
+      SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
+      SET_IP1="192.168.254.$SUFFIX"
+      SET_IP2="192.168.253.$SUFFIX"
+      FILENAME1="/etc/sysconfig/network-scripts/ifcfg-eth1"
+      FILENAME2="/etc/sysconfig/network-scripts/ifcfg-eth2"
+      echo "SUFFIX: $SUFFIX;set_ip1:$SET_IP1;set_ip2:$SET_IP2"  
     else 
       echo 2
       return 2

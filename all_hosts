@@ -1,0 +1,17 @@
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+172.16.254.1    yunwei1                         
+172.16.254.2    yunwei2                         
+172.16.254.3    yunwei3                          
+172.16.254.4    yunwei4                          
+172.16.254.5    yunwei5                         
+172.16.254.6    yunwei6                         
+172.16.254.7    yunwei7
+172.16.254.211  docker1b
+192.168.254.110     kvm110
+192.168.254.111     kvm111
+192.168.254.112     kvm112
+192.168.254.120     kvm120
+192.168.254.121     kvm121
+192.168.254.122     kvm122
+192.168.254.123     kvm123
+192.168.254.113     kvm113
