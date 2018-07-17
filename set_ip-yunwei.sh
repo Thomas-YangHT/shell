@@ -6,7 +6,7 @@
 func_GET(){
     FILENAME="/etc/sysconfig/network-scripts/ifcfg-eth0"
     MYHOST="192.168.251.211"
-    (ping 192.168.251.211 -c 1 && MYHOST=192.168.251.211) || (ping 192.168.254.211 -c 1 && MYHOST=192.168.254.211)
+    ping 192.168.251.211 -c 1 && MYHOST=192.168.251.211 ||  MYHOST=192.168.254.211;echo $MYHOST
     #UUID=`nmcli c|grep eth0|awk '{print $2}'`
     UUID=`grep -Po "UUID=\K.*" $FILENAME`
     MAC=`ifconfig eth0|grep ether|awk '{print $2}'`

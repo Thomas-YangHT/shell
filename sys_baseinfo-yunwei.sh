@@ -3,7 +3,7 @@
 #sys_baseinfo.sh:   Get sys_base_info and report to CMDB
 #
 MYHOST="192.168.251.211"
-(ping 192.168.251.211 -c 1 && MYHOST=192.168.251.211) || (ping 192.168.254.211 -c 1 && MYHOST=192.168.254.211)
+ping 192.168.251.211 -c 1 && MYHOST=192.168.251.211 ||  MYHOST=192.168.254.211;echo $MYHOST
 
 export LC_ALL=en_US.UTF-8
 HOSTNAME=`hostname`
