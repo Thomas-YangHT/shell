@@ -2,6 +2,7 @@
 #
 #sys_baseinfo.sh:   Get sys_base_info and report to CMDB
 #
+export LC_ALL=en_US.UTF-8
 HOSTNAME=`hostname`
 TZ=`tail -n 1 /etc/localtime`
 KERNEL=`uname -ro`
@@ -16,4 +17,4 @@ echo $HOSTNAME, $KERNEL, $TZ, $MAC, $IP, $CPU, $MEMORY, $DISK, $SERIESNO
 
 sql="insert into baseinfo(hostname, kernel, tz, mac, ip, cpu, memory, disk, seriesno) \
      select \"$HOSTNAME\",\"$KERNEL\",\"$TZ\", \"$MAC\", \"$IP\", \"$CPU\",  \"$MEMORY\", \"$DISK\", \"$SERIESNO\" "
-echo $sql|mysql -uyanght -D monitor -pyanght -h 192.168.31.140
+echo $sql|mysql -uyanght -D monitor -pyanght -h 192.168.254.211

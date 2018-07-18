@@ -4,3 +4,9 @@ sed -i.ori "s#ExecStart=.*#ExecStart=/usr/bin/dockerd $OPTIONS#" /usr/lib/system
 systemctl daemon-reload
 systemctl restart docker
 docker info
+
+cd /usr/local/bin
+wget 192.168.254.5/software/docker-compose
+chmod 755 docker-compose
+docker-compose --version
+

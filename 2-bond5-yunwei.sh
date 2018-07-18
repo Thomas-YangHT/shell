@@ -1,6 +1,9 @@
 #!/bin/bash
 #创建一个名为bond0的链路接口
 #修改IP和网卡名再运行
+cd /etc/sysconfig/network-scripts/
+mkdir bak
+cp ifcfg* bak/
 rm -rf /etc/sysconfig/network-scripts/ifcfg-*
 rm -rf /etc/sysconfig/network-scripts/route-*
 IP=172.16.254.1
@@ -12,6 +15,7 @@ IP6=10.20.0.1
 GATE=172.16.0.1
 DNS1=172.16.254.251
 DNS2=223.5.5.5
+#modify this if netcard is em*
 ETH1=eth0
 ETH2=eth1
 ETH3=eth2
@@ -24,7 +28,45 @@ MODE=6 #blance-tlb
 #802.3ad (4)
 #balance-tlb (5) 
 #balance-alb (6)
+#从数据库取得设置参数
+func_GET(){
+    FILENAME="/etc/sysconfig/network-scripts/ifcfg-eth0"
+    MYHOST="192.168.254.211"
+    #UUID=`nmcli c|grep eth0|awk '{print $2}'`
+    UUID=`grep -Po "UUID=\K.*" $FILENAME`
+    MAC=`ifconfig eth0|grep ether|awk '{print $2}'`
+  
+    sql="select set_hostname, set_ip, set_prefix, set_gwip, set_dns1 \
+         from baseinfo \
+         where mac=\"$MAC\""
+    
+    RESULTS=(`echo $sql|mysql -uyanght -D monitor -pyanght -h $MYHOST`)
+    i=5
+    #i表示设定项目数量，检查结果数据是否为5项(去除表头)
+    if [ $((${#RESULTS[@]}/2)) = $i ];then
+      echo 1
+      SET_hostname=${RESULTS[$i]}
+      SET_ip=${RESULTS[$i+1]}
+      SET_prefix=${RESULTS[$i+2]}
+      SET_gwip=${RESULTS[$i+3]}
+      SET_dns1=${RESULTS[$i+4]}
+      #add
+      SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
+      IP=SET_ip
+      IP2="192.168.254.$SUFFIX"
+      IP3="192.168.253.$SUFFIX"
+      IP4="192.168.252.$SUFFIX"
+      IP5="192.168.251.$SUFFIX"
+      GATE=SET_gwip
+      DNS1=SET_dns1
+      echo "SUFFIX: $SUFFIX;$IP;$IP2;$IP3;$IP4;$IP5;$GATE;$DNS1"  
+    else 
+      echo 2
+      return 2
+    fi
+}
 
+func_GET
 modprobe bonding
 cat <<EOF> /etc/sysconfig/network-scripts/ifcfg-bond0
 DEVICE=bond0
@@ -103,9 +145,9 @@ PREFIX4=24
 #DNS2=$DNS2
 EOF
 
-systemctl restart network
+#systemctl restart network
 #ping $GATE -c 1
-systemctl enable NetworkManager
+#systemctl enable NetworkManager
 #reboot
 #check: speed 2000MB/s
 # ethtool bond0
