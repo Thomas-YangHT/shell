@@ -1,6 +1,9 @@
 #!/bin/bash
 #创建一个名为bond0的链路接口
 #修改IP和网卡名再运行
+#eth0--->br1---->virt br1
+#eth1/eth2/eth3--->bond0--->br0--->virt br0
+#
 cd /etc/sysconfig/network-scripts/
 mkdir bak
 cp ifcfg* bak/
@@ -154,6 +157,7 @@ EOF
 # brctl show
 # ifconfig br0
 
+#virsh br0 br1
 cat >networkbr0.xml <<EOF
 <network>  
 <name>br0</name>    

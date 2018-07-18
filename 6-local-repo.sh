@@ -1,10 +1,12 @@
 #
 DIR="/export/download/centos"
-SOURCE="rsync://mirrors.kernel.org/centos"
+#SOURCE="rsync://mirrors.kernel.org/centos"
+SOURCE="rsync://mirrors.ustc.edu.cn/centos"
+#SOURCE="rsync://mirrors.neusoft.edu.cn/centos"
 
 #http://mirrors.sohu.com/centos/
 #http://mirrors.kernel.org
-#http://rsync.mirrors.ustc.edu.cn
+#http://mirrors.ustc.edu.cn
 #http://mirrors.neusoft.edu.cn
 
 #yum install -y createrepo
@@ -20,6 +22,9 @@ rsync -avrt --delete $SOURCE/7/updates $DIR/7
 rsync -avrt --delete $SOURCE/7/centosplus $DIR/7
 rsync -avrt --delete $SOURCE/RPM-GPG-KEY-CentOS-7 $DIR
 #createrepo --update $DIR/os
+#createrepo --update $DIR/extras
+#createrepo --update $DIR/updates
+#createrepo --update $DIR/centosplus
 cd /export/download
 reposync --repoid=openstack-ocata
 reposync --repoid=epel

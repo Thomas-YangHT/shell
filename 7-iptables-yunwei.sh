@@ -25,6 +25,8 @@ cat <<EOF>/etc/sysconfig/iptables
 -A INPUT -p udp -m udp --sport 123 -j ACCEPT
 -A INPUT -p icmp -j ACCEPT 
 -A INPUT -j DROP
+-A FORWARD -s 192.168.255.0/24 -j ACCEPT
+-A FORWARD -s 172.16.254.0/16  -j ACCEPT
 -A FORWARD -j DROP
 COMMIT
 EOF
