@@ -47,6 +47,7 @@ OPTIONS="--selinux-enabled -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 
 sed -i.ori "s#ExecStart=.*#ExecStart=/usr/bin/dockerd $OPTIONS#" /usr/lib/systemd/system/docker.service
 systemctl daemon-reload
 systemctl restart docker
+docker info
 
 
 #将kolla的镜相保存到私有镜相库示例：
@@ -66,8 +67,8 @@ do
   docker push $j
 done
 
-
-
+docker tag docker.io/zabbix/zabbix-server-mysql:latest localhost:5000/zabbix/zabbix-server-mysql
+docker push localhost:5000/zabbix/zabbix-server-mysql:latest
 
 
 

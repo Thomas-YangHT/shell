@@ -17,3 +17,4 @@ rsync -avrt --delete $SOURCE/7/updates $DIR/7
 rsync -avrt --delete $SOURCE/7/centosplus $DIR/7
 rsync -avrt --delete $SOURCE/RPM-GPG-KEY-CentOS-7 $DIR
 #createrepo --update /usr/local/apache/htdocs/centos/extra
+reposync --repoid=openstack-ocata

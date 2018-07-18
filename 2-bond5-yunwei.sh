@@ -111,3 +111,31 @@ systemctl enable NetworkManager
 # ethtool bond0
 # brctl show
 # ifconfig br0
+
+cat >networkbr0.xml <<EOF
+<network>  
+<name>br0</name>    
+<forward mode="bridge" />  
+<interface dev="bond0" /> 
+</network>  
+EOF
+virsh net-define networkbr0.xml 
+virsh net-autostart br0
+virsh net-start br0
+virsh net-list --all
+brctl show
+
+cat >networkbr1.xml <<EOF
+<network>  
+<name>br1</name>    
+<forward mode="bridge" />  
+<interface dev="eth0" /> 
+</network>  
+EOF
+virsh net-define networkbr1.xml 
+virsh net-autostart br1
+virsh net-start br1
+virsh net-list --all
+brctl show
+
+
