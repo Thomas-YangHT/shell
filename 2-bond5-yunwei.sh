@@ -55,13 +55,13 @@ func_GET(){
       SET_dns1=${RESULTS[$i+4]}
       #add
       SUFFIX=`echo $SET_ip|grep -Po ".*\.\K.*"`
-      IP=SET_ip
+      IP=$SET_ip
       IP2="192.168.254.$SUFFIX"
       IP3="192.168.253.$SUFFIX"
       IP4="192.168.252.$SUFFIX"
       IP5="192.168.251.$SUFFIX"
-      GATE=SET_gwip
-      DNS1=SET_dns1
+      GATE=$SET_gwip
+      DNS1=$SET_dns1
       echo "SUFFIX: $SUFFIX;$IP;$IP2;$IP3;$IP4;$IP5;$GATE;$DNS1"  
     else 
       echo 2
