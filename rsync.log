@@ -1,41 +1,532 @@
-sending incremental file list
-created directory /mnt/192.168.100.222
-docker_20180416-161413.tgz
-docker_20180416-162450.tgz
+ _______________________________________________________________
+|         University of Science and Technology of China         |
+|           Open Source Mirror  (mirrors.ustc.edu.cn)           |
+|===============================================================|
+|                                                               |
+|    We Mirror a great many OSS projects & Linux distros.       |
+|                                                               |
+| Currently we don't limit speed. To prevent overload, Each IP  |
+| is only allowed to start upto 2 concurrent rsync connections. |
+|                                                               |
+| This site also provides http/https/ftp access.                |
+|                                                               |
+| Supported by USTC Network Information Center                  |
+|          and USTC Linux User Group (http://lug.ustc.edu.cn/). |
+|                                                               |
+|    Sync Status:  https://mirrors.ustc.edu.cn/status/          |
+|           News:  https://servers.ustclug.org/                 |
+|        Contact:  lug@ustc.edu.cn                              |
+|                                                               |
+|_______________________________________________________________|
 
-sent 143636913 bytes  received 50 bytes  8705270.48 bytes/sec
-total size is 143588524  speedup is 1.00
-sending incremental file list
-sending incremental file list
-created directory /mnt/sdc/192.168.100.222
-docker_20180416-161413.tgz
-docker_20180416-162450.tgz
-docker_20180416-170231.tgz
 
-sent 215491361 bytes  received 69 bytes  17239314.40 bytes/sec
-total size is 215418780  speedup is 1.00
-sending incremental file list
-mysql_20180416-211948.sql
+receiving incremental file list
 
-sent 102 bytes  received 31 bytes  266.00 bytes/sec
-total size is 0  speedup is 0.00
-sending incremental file list
-mysql_20180416-212503.sql
+sent 41 bytes  received 85,710 bytes  3,811.16 bytes/sec
+total size is 2,271,298,504  speedup is 26,487.14
+ _______________________________________________________________
+|         University of Science and Technology of China         |
+|           Open Source Mirror  (mirrors.ustc.edu.cn)           |
+|===============================================================|
+|                                                               |
+|    We Mirror a great many OSS projects & Linux distros.       |
+|                                                               |
+| Currently we don't limit speed. To prevent overload, Each IP  |
+| is only allowed to start upto 2 concurrent rsync connections. |
+|                                                               |
+| This site also provides http/https/ftp access.                |
+|                                                               |
+| Supported by USTC Network Information Center                  |
+|          and USTC Linux User Group (http://lug.ustc.edu.cn/). |
+|                                                               |
+|    Sync Status:  https://mirrors.ustc.edu.cn/status/          |
+|           News:  https://servers.ustclug.org/                 |
+|        Contact:  lug@ustc.edu.cn                              |
+|                                                               |
+|_______________________________________________________________|
 
-sent 136 bytes  received 31 bytes  334.00 bytes/sec
-total size is 0  speedup is 0.00
-sending incremental file list
-mysql_20180416-212547.sql
 
-sent 101924 bytes  received 31 bytes  203910.00 bytes/sec
-total size is 2375071  speedup is 23.30
-sending incremental file list
-mysql_20180416-215004.tgz
+receiving incremental file list
+os/
+os/x86_64/
+os/x86_64/EFI/
+os/x86_64/EFI/BOOT/
+os/x86_64/EFI/BOOT/fonts/
+os/x86_64/LiveOS/
+os/x86_64/Packages/
+os/x86_64/images/
+os/x86_64/images/pxeboot/
+os/x86_64/isolinux/
+os/x86_64/repodata/
 
-sent 155 bytes  received 31 bytes  372.00 bytes/sec
-total size is 45  speedup is 0.24
-sending incremental file list
-mysql_20180416-215004.tgz
+sent 29,930 bytes  received 513,740 bytes  362,446.67 bytes/sec
+total size is 9,899,610,540  speedup is 18,208.86
+ _______________________________________________________________
+|         University of Science and Technology of China         |
+|           Open Source Mirror  (mirrors.ustc.edu.cn)           |
+|===============================================================|
+|                                                               |
+|    We Mirror a great many OSS projects & Linux distros.       |
+|                                                               |
+| Currently we don't limit speed. To prevent overload, Each IP  |
+| is only allowed to start upto 2 concurrent rsync connections. |
+|                                                               |
+| This site also provides http/https/ftp access.                |
+|                                                               |
+| Supported by USTC Network Information Center                  |
+|          and USTC Linux User Group (http://lug.ustc.edu.cn/). |
+|                                                               |
+|    Sync Status:  https://mirrors.ustc.edu.cn/status/          |
+|           News:  https://servers.ustclug.org/                 |
+|        Contact:  lug@ustc.edu.cn                              |
+|                                                               |
+|_______________________________________________________________|
 
-sent 102042 bytes  received 37 bytes  204158.00 bytes/sec
-total size is 101901  speedup is 1.00
+
+receiving incremental file list
+updates/
+updates/x86_64/
+updates/x86_64/Packages/
+updates/x86_64/Packages/kernel-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-abi-whitelists-3.10.0-862.9.1.el7.noarch.rpm
+updates/x86_64/Packages/kernel-debug-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-debug-devel-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-devel-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-doc-3.10.0-862.9.1.el7.noarch.rpm
+updates/x86_64/Packages/kernel-headers-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-tools-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-tools-libs-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/kernel-tools-libs-devel-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/perf-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/Packages/python-perf-3.10.0-862.9.1.el7.x86_64.rpm
+updates/x86_64/drpms/
+deleting updates/x86_64/repodata/d65cb46c282562b9243d610f496cfcf344d23fa368e5cd7fb2ecf4b8ff0532d1-primary.sqlite.bz2
+deleting updates/x86_64/repodata/b2db138b40e063d1fa81a8f1a92f8ae10d7006f7d058c9fada278d689b57d2d4-prestodelta.xml.gz
+deleting updates/x86_64/repodata/831420ad8f573158cfbf872ff509b1be7402fc4ac92f4edee827e4c7ecc48f42-filelists.sqlite.bz2
+deleting updates/x86_64/repodata/7e2d7be3a47bde40a60f1a9aba6830bd957eb5b0b56434cace1ca818cbb74682-filelists.xml.gz
+deleting updates/x86_64/repodata/6f2273a24c89faee619a9079d77e7489c1c738d45a93c98875b72f2efd54be4a-primary.xml.gz
+deleting updates/x86_64/repodata/54d0bc3f9b9388b08180805aa365f48b52c7dfd50fff0ab4439563388265962c-other.xml.gz
+deleting updates/x86_64/repodata/3a67dfc8fcfad9d527fc355c7e21c654f65080f22edfecb1549be9684b5eae89-other.sqlite.bz2
+updates/x86_64/drpms/kernel-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-693.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-abi-whitelists-3.10.0-862.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-debug-devel-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-devel-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-693.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-doc-3.10.0-862.el7_3.10.0-862.9.1.el7.noarch.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-headers-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/kernel-tools-libs-devel-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/perf-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.11.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.11.6.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.17.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.21.1.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.5.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-693.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-862.2.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-862.3.2.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-862.3.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-862.6.3.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/drpms/python-perf-3.10.0-862.el7_3.10.0-862.9.1.el7.x86_64.drpm
+updates/x86_64/repodata/
+updates/x86_64/repodata/08f724e6ca058ba542f96bc1f6e03602731c41f503a9ec2b450d381f6da6e2bf-prestodelta.xml.gz
+updates/x86_64/repodata/41000f4cc02ec86d85048d3d8f41c8aa31199f3e533ef7bf0f2ab657339fa189-primary.xml.gz
+updates/x86_64/repodata/425da0d3299a34e251da44d94268e857a091963de4d4b4714002675eaf48c044-primary.sqlite.bz2
+updates/x86_64/repodata/4dcafef30385839be900c9deaab1ef174cac6cec9c39110f3a88d907c1cdfdb7-filelists.xml.gz
+updates/x86_64/repodata/7792de132c56c321128e4b6c2a6c85a80e43a49eb326a42af2604b52bfdc5951-filelists.sqlite.bz2
+updates/x86_64/repodata/8c7e4fbbe09304c3856e74fa5cf340363a78a2731a14d2b271f730a610612044-other.xml.gz
+updates/x86_64/repodata/c652afa7acfd9e75f427e28846671eeb3170862bfd53c622a5634c55fa879790-other.sqlite.bz2
+updates/x86_64/repodata/repomd.xml
+updates/x86_64/repodata/repomd.xml.asc
+
+sent 19,849 bytes  received 2,116,657,770 bytes  516,199.88 bytes/sec
+total size is 14,388,964,063  speedup is 6.80
+ _______________________________________________________________
+|         University of Science and Technology of China         |
+|           Open Source Mirror  (mirrors.ustc.edu.cn)           |
+|===============================================================|
+|                                                               |
+|    We Mirror a great many OSS projects & Linux distros.       |
+|                                                               |
+| Currently we don't limit speed. To prevent overload, Each IP  |
+| is only allowed to start upto 2 concurrent rsync connections. |
+|                                                               |
+| This site also provides http/https/ftp access.                |
+|                                                               |
+| Supported by USTC Network Information Center                  |
+|          and USTC Linux User Group (http://lug.ustc.edu.cn/). |
+|                                                               |
+|    Sync Status:  https://mirrors.ustc.edu.cn/status/          |
+|           News:  https://servers.ustclug.org/                 |
+|        Contact:  lug@ustc.edu.cn                              |
+|                                                               |
+|_______________________________________________________________|
+
+
+receiving incremental file list
+centosplus/
+centosplus/x86_64/
+centosplus/x86_64/Packages/
+centosplus/x86_64/Packages/kernel-plus-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/kernel-plus-abi-whitelists-3.10.0-862.9.1.el7.centos.plus.noarch.rpm
+centosplus/x86_64/Packages/kernel-plus-devel-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/kernel-plus-doc-3.10.0-862.9.1.el7.centos.plus.noarch.rpm
+centosplus/x86_64/Packages/kernel-plus-headers-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/kernel-plus-tools-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/kernel-plus-tools-libs-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/kernel-plus-tools-libs-devel-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/perf-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/Packages/python-perf-3.10.0-862.9.1.el7.centos.plus.x86_64.rpm
+centosplus/x86_64/drpms/
+centosplus/x86_64/drpms/kernel-plus-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-abi-whitelists-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-devel-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-doc-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.noarch.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-headers-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-693.2.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/kernel-plus-tools-libs-devel-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/perf-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-693.11.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-693.11.6.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-693.17.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-693.21.1.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-693.5.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-862.2.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-862.3.2.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-862.3.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-862.6.3.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/drpms/python-perf-3.10.0-862.el7.centos.plus_3.10.0-862.9.1.el7.centos.plus.x86_64.drpm
+centosplus/x86_64/repodata/
+centosplus/x86_64/repodata/1a7dd651127783f42001965633c0f2267dde1769cc104744abf76ccf06452dfd-filelists.sqlite.bz2
+centosplus/x86_64/repodata/521c9e308d6fa71c54d402537a68ff2169c7eb94752b92f7c6819668fceb83cc-prestodelta.xml.gz
+centosplus/x86_64/repodata/76b5cc5244930e2745171b06b1281b819cd949ae0480840c544c4377e7624da1-filelists.xml.gz
+centosplus/x86_64/repodata/7ad4cb4f1ab346a7e0b047dde4b75b49ffad64cf7fdea3c98ab8139491639896-other.sqlite.bz2
+centosplus/x86_64/repodata/80a50e6c8d1fd041d86e1fb0944d1a9474c7873a24400fdef474c7226220fc60-other.xml.gz
+centosplus/x86_64/repodata/b0370f61b39bf5447d337caa58187669258d28efd1d8fb2018aa875fd8184030-primary.xml.gz
+centosplus/x86_64/repodata/b9a4d80380cb1eec48bf7ae9afee81d2f83156d90a441bc864db1dc2389240b9-primary.sqlite.bz2
+centosplus/x86_64/repodata/repomd.xml
+centosplus/x86_64/repodata/repomd.xml.asc
+
+sent 3,608 bytes  received 1,295,073,152 bytes  2,422,968.68 bytes/sec
+total size is 5,994,575,370  speedup is 4.63
+ _______________________________________________________________
+|         University of Science and Technology of China         |
+|           Open Source Mirror  (mirrors.ustc.edu.cn)           |
+|===============================================================|
+|                                                               |
+|    We Mirror a great many OSS projects & Linux distros.       |
+|                                                               |
+| Currently we don't limit speed. To prevent overload, Each IP  |
+| is only allowed to start upto 2 concurrent rsync connections. |
+|                                                               |
+| This site also provides http/https/ftp access.                |
+|                                                               |
+| Supported by USTC Network Information Center                  |
+|          and USTC Linux User Group (http://lug.ustc.edu.cn/). |
+|                                                               |
+|    Sync Status:  https://mirrors.ustc.edu.cn/status/          |
+|           News:  https://servers.ustclug.org/                 |
+|        Contact:  lug@ustc.edu.cn                              |
+|                                                               |
+|_______________________________________________________________|
+
+
+receiving incremental file list
+
+sent 27 bytes  received 70 bytes  4.97 bytes/sec
+total size is 1,690  speedup is 17.42
+Repository base is listed more than once in the configuration
+Repository updates is listed more than once in the configuration
+Repository extras is listed more than once in the configuration
+Repository centosplus is listed more than once in the configuration
+Repository base is listed more than once in the configuration
+Repository updates is listed more than once in the configuration
+Repository extras is listed more than once in the configuration
+Repository centosplus is listed more than once in the configuration
+Repository base is listed more than once in the configuration
+Repository updates is listed more than once in the configuration
+Repository extras is listed more than once in the configuration
+Repository centosplus is listed more than once in the configuration
+Spawning worker 0 with 529 pkgs
+Spawning worker 1 with 529 pkgs
+Spawning worker 2 with 529 pkgs
+Spawning worker 3 with 529 pkgs
+Spawning worker 4 with 528 pkgs
+Spawning worker 5 with 528 pkgs
+Spawning worker 6 with 528 pkgs
+Spawning worker 7 with 528 pkgs
+Spawning worker 8 with 528 pkgs
+Spawning worker 9 with 528 pkgs
+Spawning worker 10 with 528 pkgs
+Spawning worker 11 with 528 pkgs
+Spawning worker 12 with 528 pkgs
+Spawning worker 13 with 528 pkgs
+Spawning worker 14 with 528 pkgs
+Spawning worker 15 with 528 pkgs
+Spawning worker 16 with 528 pkgs
+Spawning worker 17 with 528 pkgs
+Spawning worker 18 with 528 pkgs
+Spawning worker 19 with 528 pkgs
+Spawning worker 20 with 528 pkgs
+Spawning worker 21 with 528 pkgs
+Spawning worker 22 with 528 pkgs
+Spawning worker 23 with 528 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+Spawning worker 0 with 82 pkgs
+Spawning worker 1 with 82 pkgs
+Spawning worker 2 with 82 pkgs
+Spawning worker 3 with 82 pkgs
+Spawning worker 4 with 82 pkgs
+Spawning worker 5 with 82 pkgs
+Spawning worker 6 with 82 pkgs
+Spawning worker 7 with 82 pkgs
+Spawning worker 8 with 82 pkgs
+Spawning worker 9 with 82 pkgs
+Spawning worker 10 with 82 pkgs
+Spawning worker 11 with 82 pkgs
+Spawning worker 12 with 82 pkgs
+Spawning worker 13 with 82 pkgs
+Spawning worker 14 with 82 pkgs
+Spawning worker 15 with 82 pkgs
+Spawning worker 16 with 81 pkgs
+Spawning worker 17 with 81 pkgs
+Spawning worker 18 with 81 pkgs
+Spawning worker 19 with 81 pkgs
+Spawning worker 20 with 81 pkgs
+Spawning worker 21 with 81 pkgs
+Spawning worker 22 with 81 pkgs
+Spawning worker 23 with 81 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+Spawning worker 0 with 3 pkgs
+Spawning worker 1 with 3 pkgs
+Spawning worker 2 with 3 pkgs
+Spawning worker 3 with 3 pkgs
+Spawning worker 4 with 3 pkgs
+Spawning worker 5 with 3 pkgs
+Spawning worker 6 with 3 pkgs
+Spawning worker 7 with 3 pkgs
+Spawning worker 8 with 3 pkgs
+Spawning worker 9 with 3 pkgs
+Spawning worker 10 with 3 pkgs
+Spawning worker 11 with 2 pkgs
+Spawning worker 12 with 2 pkgs
+Spawning worker 13 with 2 pkgs
+Spawning worker 14 with 2 pkgs
+Spawning worker 15 with 2 pkgs
+Spawning worker 16 with 2 pkgs
+Spawning worker 17 with 2 pkgs
+Spawning worker 18 with 2 pkgs
+Spawning worker 19 with 2 pkgs
+Spawning worker 20 with 2 pkgs
+Spawning worker 21 with 2 pkgs
+Spawning worker 22 with 2 pkgs
+Spawning worker 23 with 2 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
