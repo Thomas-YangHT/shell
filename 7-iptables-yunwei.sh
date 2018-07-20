@@ -41,3 +41,5 @@ systemctl daemon-reload
 systemctl restart iptables
 iptables -nvL
 iptables -nvL -t nat
+systemctl restart libvirtd
+systemctl restart docker

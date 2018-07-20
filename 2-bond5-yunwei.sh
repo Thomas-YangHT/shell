@@ -19,11 +19,11 @@ GATE=172.16.0.1
 DNS1=172.16.254.251
 DNS2=223.5.5.5
 #modify this if netcard is em*
-ETH1=eth0
-ETH2=eth1
-ETH3=eth2
-ETH4=eth3
-MODE=6 #blance-tlb
+ETH1=$(ip -o link | cut -d: -f2 | sed -n 's/ //;2p')
+ETH2=$(ip -o link | cut -d: -f2 | sed -n 's/ //;3p')
+ETH3=$(ip -o link | cut -d: -f2 | sed -n 's/ //;4p')
+ETH4=$(ip -o link | cut -d: -f2 | sed -n 's/ //;5p')
+MODE=6 
 #balance-rr(0)
 #active-backup(1)
 #balance-xor (2)
@@ -33,11 +33,11 @@ MODE=6 #blance-tlb
 #balance-alb (6)
 #从数据库取得设置参数
 func_GET(){
-    FILENAME="/etc/sysconfig/network-scripts/ifcfg-eth0"
+    FILENAME="/etc/sysconfig/network-scripts/ifcfg-$ETH1"
     MYHOST="192.168.254.211"
     #UUID=`nmcli c|grep eth0|awk '{print $2}'`
     UUID=`grep -Po "UUID=\K.*" $FILENAME`
-    MAC=`ifconfig eth0|grep ether|awk '{print $2}'`
+    MAC=`ifconfig $ETH1|grep ether|awk '{print $2}'`
   
     sql="select set_hostname, set_ip, set_prefix, set_gwip, set_dns1 \
          from baseinfo \
@@ -175,7 +175,7 @@ cat >networkbr1.xml <<EOF
 <network>  
 <name>br1</name>    
 <forward mode="bridge" />  
-<interface dev="eth0" /> 
+<interface dev="$ETH1" /> 
 </network>  
 EOF
 virsh net-define networkbr1.xml 
