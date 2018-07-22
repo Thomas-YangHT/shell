@@ -2,16 +2,16 @@
 from fabric.api import *
 
 #env.roledefs={ 'hosts':['192.168.254.1','192.168.254.7'],'kvm':['192.168.1.22','192.168.1.24']}
-def env-hosts():
+def env_hosts():
     env.hosts=['192.168.254.1','192.168.254.2','192.168.254.3','192.168.254.4','192.168.254.5','192.168.254.6','192.168.254.7']
 
-def env-kvms():
+def env_kvms():
     env.hosts=['kvm110','kvm111','kvm112','kvm113','kvm120','kvm121','kvm122','kvm123']
 
-def env-port-host():
+def env_port_host():
     env.port='30022'
 
-def env-port-kvm():
+def env_port_kvm():
     env.port='22'
 
 def uptime():
@@ -23,15 +23,15 @@ def upload():
     put('/root/shell/2-bond5-yunwei.sh','/root/')
     put('/root/shell/virt-clone-yunwei.sh','/root/')
 
-def upload-hosts():
+def upload_hosts():
     put('/root/shell/all_hosts','/etc/hosts')
 
-def upload-iptables():
+def upload_iptables():
     put('/root/shell/iptables','/etc/sysconfig/iptables')
     put('/root/shell/iptables.init','/usr/libexec/iptables/iptables.init')
     put('/root/shell/iptables.services','/usr/lib/systemd/system/iptables.service')
 
-def upload-yum-yunwei():
+def upload_yum_yunwei():
     run('cd /etc/yum.repos.d;wget 192.168.254.251/shell/*yunwei.repo')    
 
 def exec_baseinfo():
@@ -43,11 +43,12 @@ def exec_set_ip_kvm():
 def exec_set_ip_host():
     run('sh 2-bond5-yunwei.sh')
 	
-def instcron-set-ip-kvm():
+def instcron_set_ip_kvm():
     run('echo "*/5 * * * * /usr/bin/bash /root/set_ip-yunwei.sh" >>/var/spool/cron/root')
 
-def delecron-set-ip-kvm():
+def delecron_set_ip_kvm():
     run('cp  /var/spool/cron/root /var/spool/cron/rootbak')
     run('grep -v "/root/set_ip-yunwei.sh"  /var/spool/cron/rootbak >/var/spool/cron/root')
 
-
+def zbx_agent():
+    run('cd /opt/cmp_zabbix;sh zbx_agent-st2.sh')
