@@ -35,7 +35,7 @@ virtual_server 172.16.254.246 80 {
     persistence_timeout 0
     protocol TCP
 
-    real_server 192.168.254.5 80 {
+    real_server 172.16.254.5 80 {
         weight 1
         TCP_CHECK {
             connect_timeout 10
@@ -45,7 +45,7 @@ virtual_server 172.16.254.246 80 {
         }
     }
 
-    real_server 192.168.254.6 80 {
+    real_server 172.16.254.6 80 {
         weight 1
         TCP_CHECK {
             connect_timeout 10
@@ -64,7 +64,7 @@ virtual_server 172.16.254.247 80 {
     persistence_timeout 0
     protocol TCP
 
-    real_server 192.168.254.5 80 {
+    real_server 172.16.254.5 80 {
         weight 1
         TCP_CHECK {
             connect_timeout 10
@@ -74,7 +74,7 @@ virtual_server 172.16.254.247 80 {
         }
     }
 
-    real_server 192.168.254.6 80 {
+    real_server 172.16.254.6 80 {
         weight 1
         TCP_CHECK {
             connect_timeout 10
