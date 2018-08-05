@@ -56,3 +56,32 @@ virtual_server 192.168.254.246 80 {
     }
 	
 }
+
+virtual_server 192.168.254.247 80 {
+    delay_loop 6
+    lb_algo rr
+    lb_kind DR
+    persistence_timeout 0
+    protocol TCP
+
+    real_server 192.168.254.5 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 10
+            nb_get_retry 3
+            delay_before_retry 3
+            connect_port 80
+        }
+    }
+
+    real_server 192.168.254.6 80 {
+        weight 1
+        TCP_CHECK {
+            connect_timeout 10
+            nb_get_retry 3
+            delay_before_retry 3
+            connect_port 80
+        }
+    }
+	
+}
