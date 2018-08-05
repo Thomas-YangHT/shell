@@ -9,7 +9,7 @@ vrrp_instance VI_1 {
         auth_pass 1111
     }
     virtual_ipaddress {
-        192.168.254.246
+        172.16.254.246
     }
 }
 
@@ -24,11 +24,11 @@ vrrp_instance VI_2 {
         auth_pass 1111
     }
     virtual_ipaddress {
-        192.168.254.247
+        172.16.254.247
     }
 }
  
-virtual_server 192.168.254.246 80 {
+virtual_server 172.16.254.246 80 {
     delay_loop 6
     lb_algo rr
     lb_kind DR
@@ -57,7 +57,7 @@ virtual_server 192.168.254.246 80 {
 	
 }
 
-virtual_server 192.168.254.247 80 {
+virtual_server 172.16.254.247 80 {
     delay_loop 6
     lb_algo rr
     lb_kind DR
