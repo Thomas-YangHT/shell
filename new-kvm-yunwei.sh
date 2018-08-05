@@ -3,6 +3,7 @@
 #
 if [ "$1" ];then
   kvmname=$1
+  virsh list|grep $1 || (virsh start $1 && sleep 15)
   kvmbase="192.168.253.254"
   SUFFIX="$(($RANDOM/254+1))"
   touch ~/.ssh/config && echo -e "StrictHostKeyChecking=no\nUserKnownHostsFile=/dev/null" >> ~/.ssh/config

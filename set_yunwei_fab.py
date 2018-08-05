@@ -50,5 +50,13 @@ def delecron_set_ip_kvm():
     run('cp  /var/spool/cron/root /var/spool/cron/rootbak')
     run('grep -v "/root/set_ip-yunwei.sh"  /var/spool/cron/rootbak >/var/spool/cron/root')
 
-def zbx_agent():
-    run('cd /opt/cmp_zabbix;sh zbx_agent-st2.sh')
+def zbx_agent_stop():
+    #run('cd /opt/cmp_zabbix;sh zbx_agent-st2.sh')
+    run('cd /opt/cmp_zabbix;docker-compose stop;docker-compose rm;')
+
+def zbx_agent_start():
+    run('cd /opt/cmp_zabbix;docker-compose up -d;docker-compose restart')
+
+def zbx_agent_status():
+    run('ss -nltp|grep 10050 && echo running || echo stoped ')
+
