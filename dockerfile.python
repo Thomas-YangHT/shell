@@ -6,7 +6,7 @@ RUN curl https://raw.githubusercontent.com/Thomas-YangHT/shell/master/yum-repo2.
 #修改时区 
  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 #安装中文支持 
- yum -y install kde-l10n-Chinese && yum -y install glibc-common && \
+ yum -y install kde-l10n-Chinese glibc-common && \
 #清yum cache
  yum clean all && \
 #配置显示中文 
