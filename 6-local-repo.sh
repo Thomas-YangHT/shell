@@ -1,31 +1,32 @@
+#!/usr/bin/bash
 #
-DIR="/export/download/centos"
-#SOURCE="rsync://mirrors.kernel.org/centos"
+#For Create local  yum repo resources
+#                    by Thomas yang
+#   
+#crontab -e
+##   0 2 * * *    sh /root/shell/6-local-repo.sh
+#
+EXPORT="/export/download"
+DIR="$EXPORT/centos"
 SOURCE="rsync://mirrors.ustc.edu.cn/centos"
+#SOURCE="rsync://mirrors.kernel.org/centos"
 #SOURCE="rsync://mirrors.neusoft.edu.cn/centos"
-
 #http://mirrors.sohu.com/centos/
 #http://mirrors.kernel.org
 #http://mirrors.ustc.edu.cn
 #http://mirrors.neusoft.edu.cn
-
-#yum install -y createrepo
+[ -f /usr/bin/createrepo ] && yum install -y createrepo
+[ -f /etc/yum.repos.d/epel.repo ] && yum install -y  epel-release 
+[ -f /etc/yum.repos.d/rdo-release.repo ] && yum install -y  https://repos.fedorapeople.org/repos/openstack/openstack-ocata/rdo-release-ocata-3.noarch.rpm
 mkdir -p $DIR/7/
-#createrepo -pdo $DIR/os $DIR/os
-#createrepo -pdo $DIR/extras  $DIR/extras
-#createrepo -pdo $DIR/updates $DIR/updates
-#createrepo -pdo $DIR/centosplus $DIR/centosplus
 killall rsync
 rsync -avrt --delete $SOURCE/7/extras  $DIR/7
 rsync -avrt --delete $SOURCE/7/os      $DIR/7
 rsync -avrt --delete $SOURCE/7/updates $DIR/7
 rsync -avrt --delete $SOURCE/7/centosplus $DIR/7
 rsync -avrt --delete $SOURCE/RPM-GPG-KEY-CentOS-7 $DIR
-#createrepo --update $DIR/os
-#createrepo --update $DIR/extras
-#createrepo --update $DIR/updates
-#createrepo --update $DIR/centosplus
-cd /export/download
+
+cd $EXPORT
 reposync --repoid=openstack-ocata
 reposync --repoid=epel
 reposync --repoid=rdo-qemu-ev
