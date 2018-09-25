@@ -9,7 +9,7 @@ FROM 192.168.254.211:5000/centos
 MAINTAINER Thomas.Yang
 #RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-9.noarch.rpm && \
 RUN curl https://raw.githubusercontent.com/Thomas-YangHT/shell/master/yum-repo2.sh |sh && \
- yum -y install git wget net-tools nginx python-flask uwsgi uwsgi-plugin-python MySQL-python python2-PyMySQL && \
+ yum -y install git wget net-tools nginx python-flask uwsgi uwsgi-plugin-python2 MySQL-python python2-PyMySQL && \
 #修改时区 
  rm -rf /etc/localtime && ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 #安装中文支持 
