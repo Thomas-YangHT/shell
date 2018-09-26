@@ -165,14 +165,14 @@ chronyc sourcestats -v
 
 #设置repo
 
-tee /etc/yum.repos.d/docker.repo << 'EOF'
-[dockerrepo]
 name=Docker Repository
 baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg
-EOF
+EOFtee /etc/yum.repos.d/docker.repo << 'EOF'
+[dockerrepo]
+
 
 #安装Docker 17.05
 yum install docker-engine-17.05.0.ce docker-engine-selinux-17.05.0.ce
