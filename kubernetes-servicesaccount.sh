@@ -6,6 +6,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: build-robot
+  namespace: django-2
 EOF
 
 kubectl get serviceaccounts/build-robot -o yaml
@@ -22,8 +23,8 @@ type: kubernetes.io/service-account-token
 EOF
 
 
-kubectl describe secrets/build-robot-secret
+kubectl describe secrets
 
-kubectl create clusterrolebinding serviceaccounts-cluster-admin \
+kubectl create clusterrolebinding serviceaccounts-build-robot \
   --clusterrole=cluster-admin \
   --serviceaccount=default:build-robot
