@@ -1,0 +1,32 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "student",
+    "namespace": "default",
+    "labels": {
+      "k8s-app": "student"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "tcp-8102-80-5gw6k",
+        "protocol": "TCP",
+        "port": 8102,
+        "targetPort": 80,
+        "nodePort": 31348
+      }
+    ],
+    "selector": {
+      "k8s-app": "student"
+    },
+    "clusterIP": "10.108.116.57",
+    "type": "LoadBalancer",
+    "sessionAffinity": "None",
+    "externalTrafficPolicy": "Cluster"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}
