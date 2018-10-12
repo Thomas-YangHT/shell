@@ -14,4 +14,8 @@ data:
       executor = "kubernetes"
       [runners.kubernetes]
         namespace = "gitlab"
-        image = "192.168.31.140:5000/centos:latest"
+        privileged = true
+      [[runners.kubernetes.volumes.host_path]]
+        name = "docker-sock"
+        mount_path = "/var/run/docker.sock"
+        host_path = "/var/run/docker.sock"
