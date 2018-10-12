@@ -29,4 +29,3 @@ kubectl create clusterrolebinding serviceaccounts-gitlab-admin \
   --clusterrole=cluster-admin \
   --serviceaccount=gitlab:default
   
-https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/advanced-configuration.md
