@@ -25,6 +25,8 @@ EOF
 
 kubectl describe secrets
 
-kubectl create clusterrolebinding serviceaccounts-build-robot \
+kubectl create clusterrolebinding serviceaccounts-gitlab-admin \
   --clusterrole=cluster-admin \
-  --serviceaccount=default:build-robot
+  --serviceaccount=gitlab:default
+  
+https://gitlab.com/gitlab-org/gitlab-runner/blob/master/docs/configuration/advanced-configuration.md
