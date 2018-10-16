@@ -1,0 +1,23 @@
+# vim ingress-dashboard.yaml
+# 创建 ingress
+# kubectl create -f ingress-dashboard.yaml
+# 查看 ingress
+# kubectl get ingress --all-namespaces
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  namespace: kube-system
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+spec:
+  rules:
+  - host: dashboard.yunwei.edu
+    http:
+      paths:
+      - backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 443
+

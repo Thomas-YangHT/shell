@@ -1,0 +1,21 @@
+# 创建 Yaml 文件
+#vim ingress-student.yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: student-ingress
+  namespace: default
+spec:
+  rules:
+  - host: student.yunwei.edu
+    http:
+      paths:
+      - backend:
+          serviceName: student
+          servicePort: 8102
+
+# 创建 ingress
+# kubectl create -f ingress-student.yaml
+
+# 查看 ingress
+# kubectl get ingress --all-namespaces

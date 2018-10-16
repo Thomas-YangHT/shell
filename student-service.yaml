@@ -1,0 +1,19 @@
+#kubectl get svc student -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    k8s-app: student
+  name: student
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: tcp-8102-80-5gw6k
+    nodePort: 31348
+    port: 8102
+    protocol: TCP
+    targetPort: 80
+  selector:
+    k8s-app: student
+
