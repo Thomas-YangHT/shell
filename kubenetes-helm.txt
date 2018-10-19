@@ -9,3 +9,21 @@ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"templat
 
 helm install --name my-mariadb --set Persistence.StorageClass=slow stable/mariadb 
 （不加--set参数会出现SchedulerPredicates failed due to PersistentVolumeClaim is not bound: "", which is unexpected问题）
+
+
+helm create  student
+vi student/values.yaml
+helm lint student
+helm install --dry-run --debug student
+helm  install student
+helm list
+vi student/templates/deployment.yaml
+helm upgrade sappy-wildebeest student
+helm delete sappy-wildebeest
+helm install student -n my
+
+mkdir myrepo
+mv student-0.1.0.tgz myrepo/
+helm repo index myrepo/ --url http://download.yunwei.edu/charts
+ls myrepo/
+index.yaml  student-0.1.0.tgz

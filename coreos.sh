@@ -29,6 +29,7 @@ virt-install -n coreos -r 1500 \
 
 #iso启动后,console上执行：
 sudo mkfs.xfs /dev/vda
-sudo wget http://192.168.31.202/static.network
-sudo wget http://192.168.31.202/cloud-config.yaml
-sudo coreos-install -d /dev/vda -c cloud-config.yaml -b http://192.168.31.202
+sudo ifconfig eth0 192.168.31.22 netmask 255.255.255.0
+sudo wget http://192.168.31.253/coreos/static.network
+sudo wget http://192.168.31.253/coreos/cloud-config.yaml
+sudo coreos-install -d /dev/vda -c cloud-config.yaml -b http://192.168.31.253/coreos
