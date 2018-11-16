@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1 # K8S对应的API版本 
+kind: Deployment # 对应的类型 
+metadata: 
+  name: kong-deployment 
+  labels: 
+    name: kong-deployment 
+spec: replicas: 1 # 镜像副本数量 
+  template: 
+    metadata: 
+      labels: # 容器的标签 可和service关联 
+        app: kong 
+    spec: 
+      containers: 
+        - name: kong # 容器名和镜像 
+          image: kong:0.11.2 
+          imagePullPolicy: Always 
+		  command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600']
+          args: ["kong","migrations","up"] # 执行数据库初始化
+          volumeMounts:
+           - name: nfs-storage
+             mountPath: /home/laizy/test/
+			 subPath: path/to/test-file
+         # command:
+         # - /run.sh
+      volumes:
+      - name: nfs-storage
+        nfs:
+         server: 192.168.20.47
+         path: "/data/disk1"

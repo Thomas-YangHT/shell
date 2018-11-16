@@ -1,0 +1,46 @@
+source ./ceph/CONFIG.ceph
+
+docker exec mon radosgw-admin user create --uid=123 --display-name=rgw_adm  --system
+#记下输出KEY或由下面命令查
+docker exec mon radosgw-admin user info --uid=123
+#            "access_key": "V4J9G5OGVYCJWIRIGSL1",
+#            "secret_key": "zt6nLe7j4lukAXXm5rSqgAIZxZN6I6Ie6cC3SOaP"
+docker exec mon ceph dashboard set-rgw-api-access-key V4J9G5OGVYCJWIRIGSL1
+docker exec mon ceph dashboard set-rgw-api-secret-key zt6nLe7j4lukAXXm5rSqgAIZxZN6I6Ie6cC3SOaP
+
+docker exec mon ceph dashboard get-rgw-api-scheme
+docker exec mon ceph dashboard get-rgw-api-host
+docker exec mon ceph dashboard get-rgw-api-port
+docker exec mon ceph dashboard get-rgw-api-user-id
+docker exec mon ceph dashboard get-enable-browsable-api
+
+docker exec mon ceph dashboard set-rgw-api-host $NODE3_IP
+docker exec mon ceph dashboard set-rgw-api-port 8080
+docker exec mon set-rgw-api-scheme https
+docker exec mon ceph dashboard set-rgw-api-user-id 123
+docker exec mgr  ceph mgr module disable dashboard
+docker exec mgr  ceph mgr module enable dashboard
+
+This is all you have to do to get the Object Gateway management functionality working. The host and port of the Object Gateway are determined automatically.
+
+If multiple zones are used, it will automatically determine the host within the master zone group and master zone. This should be sufficient for most setups, but in some circumstances you might want to set the host and port manually:
+
+$ ceph dashboard set-rgw-api-host <host>
+$ ceph dashboard set-rgw-api-port <port>
+In addition to the settings mentioned so far, the following settings do also exist and you may find yourself in the situation that you have to use them:
+
+$ ceph dashboard set-rgw-api-scheme <scheme>  # http or https
+$ ceph dashboard set-rgw-api-admin-resource <admin_resource>
+$ ceph dashboard set-rgw-api-user-id <user_id>
+
+docker exec mon ceph dashboard set-rgw-api-ssl-verify False
+
+$ ceph dashboard set-rest-requests-timeout <seconds>
+
+no valid command found; 10 closest matches:
+
+
+dashboard set-rgw-api-secret-key <value>
+dashboard set-login-credentials <username> <password>
+dashboard set-session-expire <int>
+dashboard create-self-signed-cert
