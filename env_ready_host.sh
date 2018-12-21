@@ -22,9 +22,9 @@ systemctl disable firewalld
 #systemctl disable NetworkManager
 #设置语言、字符集、时区、SSHD禁掉DNS解析、网卡的名字改回ethX;
 sed  -i  '/UseDNS/i UseDNS=no' /etc/ssh/sshd_config
-#sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grup2/grub.conf
+#SED -I.ORI 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grup2/grub.conf
 #单挂载/boot/efi的情况，grub.cfg位置变为：/boot/efi/EFI/centos/grub.cfg
-#sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/efi/EFI/centos/grub.cfg
+sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/efi/EFI/centos/grub.cfg
 
 #sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grub2/grub.cfg
 echo 'export PS1="\[\e[32;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
