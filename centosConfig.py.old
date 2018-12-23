@@ -27,3 +27,19 @@ if status != 0 :
 else :
     print 'Config is uptodate'    
 
+
+
+
+#print CONFDIC['users'][0]['name']
+#print CONFDIC['users'][0]['ssh-authorized-keys'][0]
+#print CONFDIC['hostname']
+#print CONFDIC['centos']['units'][0]['name']
+#print CONFDIC['centos']['units'][0]['content'].split('\n')
+#messages=CONFDIC['centos']['units'][0]['content'].split('\n')
+#dicmess={}
+#for  m  in messages :
+#    if m.find('=') != -1:
+#        tmp=m.split('=')
+#        dicmess[tmp[0]]=tmp[1]
+#for key in dicmess:
+#    print 'dicmess:',key,dicmess[key]
