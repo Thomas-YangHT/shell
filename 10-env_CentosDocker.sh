@@ -113,7 +113,6 @@ chronyc sourcestats -v
 sed -i.ori 's/enforcing/disabled/' /etc/selinux/config
 
 #FORWARD & bridge
-modprobe bridge
 echo "
 vm.swappiness = 0
 net.bridge.bridge-nf-call-ip6tables = 1
