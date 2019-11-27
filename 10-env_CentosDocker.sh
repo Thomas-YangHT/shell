@@ -96,7 +96,20 @@ grep serial /etc/default/grub
 /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
 grep net.ifnames=0 /boot/grub2/grub.cfg
 [ $? != 0 ] &&  sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grub2/grub.cfg
-echo 'export PS1="\[\e[32;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
+echo 'export PS1="\[\e[34;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
+##颜色
+#30  40 黑色
+#31  41 红色
+#32  42 绿色
+#33  43 黄色
+#34  44 蓝色
+#35  45 紫红色
+#36  46 青蓝色
+#37  47 白色
+#PS1=’[\e[32;40m] [[\u@\h \w \t]$ [\e[0m]’
+#PS1="[\e[37;40m][[\e[32;40m]\u[\e[37;40m]@\h [\e[36;40m]\w[\e[0m]]\$ "
+#PS1="[\e[37;40m][[\e[32;40m]\u[\e[37;40m]@[\e[35;40m]\h[\e[0m] [\e[36;40m]\w[\e[0m]]\$ "
+
 echo 'LANG="zh_CN.UTF-8"' >/etc/locale.conf
 echo 'LC_ALL="en_US.UTF-8"' >>/etc/locale.conf
 rm /etc/localtime -f
