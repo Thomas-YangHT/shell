@@ -1,12 +1,20 @@
-#!/usr/bin/bash
-#collect.sh
-#
+#!$(which bash)
 ##收集服务器基础性能数据
+
+#Config network before run
+NETWORK=192.168.10
+MYSQL=192.168.10.28
+
+#OS
+[ "`uname -a|grep Ubuntu`" ] && sys=ubuntu || sys=centos
+
 #DATE时间戳
 TIMESTAMP=`date '+%Y-%m-%d %H:%M:%S'`
 
+eth=`ip a|grep $NETWORK|awk '{print $7}'|grep -v "lo:"`
+
 #IP
-IP=`/usr/sbin/ifconfig eth0 |grep "inet "|awk '{print $2}'`
+IP=`ifconfig $eth |grep "inet "|awk '{print $2}'|sed 's/addr://'`
 
 #CPUidle%
 CPUIDLE=`top -bn1 |grep Cpu|awk  '{print $8}'`
@@ -17,15 +25,16 @@ MEMTOTAL=${memory[0]}
 MEMUSED=${memory[1]}
 
 #网络进出带宽, RX, TX, 单位字节B
-eth=eth0
-netpre=(`/usr/sbin/ifconfig $eth| grep bytes|awk '{print $5}'`)
+[ "$sys" = "centos" ] && netpre=(`ifconfig $eth| grep bytes|awk '{print $5}'`) \
+|| netpre=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
 sleep 1
-netnext=(`/usr/sbin/ifconfig $eth| grep bytes|awk '{print $5}'`)
+[ "$sys" = "centos" ] && netnext=(`ifconfig $eth| grep bytes|awk '{print $5}'`) \
+|| netnext=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
 RX=$((${netnext[0]}-${netpre[0]}))
 TX=$((${netnext[1]}-${netpre[1]}))
 
 #根分区的使用率 used
-DISKROOTRATE=`df -h|awk 'NR==2{print $5}'|sed 's/%//'`
+DISKROOTRATE=`df -h|grep "/$"|awk '{print $5}'|sed 's/%//'`
 
 #磁盘IO：sda硬盘的等待时间和利用率：await, util%
 io=(`iostat -x|grep sda|awk '{print $10,$14}'`)
@@ -48,7 +57,8 @@ done
 sql1="LOAD DATA LOCAL INFILE '/tmp/netports.csv'  INTO TABLE ports CHARACTER SET utf8  FIELDS TERMINATED BY ',' (timestamp, ip,protocol, ipl, port, pid, procname);"
 sql2="insert into basemon(timestamp, ip, cpuidle,memtotal,memused,rx,tx,diskrootrate,ioawait,ioutil) values(\"$TIMESTAMP\",\"$IP\",$CPUIDLE, $MEMTOTAL, $MEMUSED, $RX,  $TX, $DISKROOTRATE, $IOAWAIT, $IOUTIL)"
 sql3="delete from ports where ip='$IP'"
-MYHOST="192.168.31.140"
-echo $sql3|mysql -uyanght -D monitor -pyanght -h $MYHOST
-echo $sql1|mysql -uyanght -D monitor -pyanght -h $MYHOST
-echo $sql2|mysql -uyanght -D monitor -pyanght -h $MYHOST
+echo $sql1 $sql2 $sql3
+echo $sql3|mysql -uyanght -D monitor -pyanght -h $MYSQL
+echo $sql1|mysql -uyanght -D monitor -pyanght -h $MYSQL
+echo $sql2|mysql -uyanght -D monitor -pyanght -h $MYSQL
+
