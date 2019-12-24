@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+#
+
+func_cpu(){
+	fab -H $IPS -f fab_chk.py cpu -u $REMOTE_USER -P --colorize-errors|grep -P "out:.*[0-9]"
+}
+
+func_mem(){
+	fab -H $IPS -f fab_chk.py mem -u $REMOTE_USER -P --colorize-errors|grep -P "out:.*Mem"
+}
+
+func_disk(){
+	fab -H $IPS -f fab_chk.py disk -u $REMOTE_USER -P --colorize-errors|grep -P "out:.*G|T"
+}
+
+func_sn(){
+	fab -H `echo $PHY_HOSTS|sed 's/ /,/g'` -f fab_chk.py sn -u $REMOTE_USER -P --colorize-errors
+}
+
+func_raid(){
+	fab -H `echo $PHY_HOSTS|sed 's/ /,/g'` -f fab_chk.py raid -u $REMOTE_USER -P --colorize-errors
+}
