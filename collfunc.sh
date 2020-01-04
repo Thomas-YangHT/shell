@@ -61,4 +61,12 @@ func_NETPORTS(){
 
 #echo "$TIMESTAMP $IP $CPUIDLE $MEMTOTAL $MEMUSED $RX  $TX $DISKROOTRATE $IOAWAIT $IOUTIL"
 
+#Series Number
+func_SN(){
+    SN='sudo -i dmidecode -s system-serial-number'
+}
 
+#Raid or Harddisk error
+func_MegaERR(){
+    MegaERR='sudo -i megacli -PDList -aALL |grep Err'
+}
