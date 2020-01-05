@@ -3,18 +3,22 @@ from fabric.api import *
 def test():
     run('echo hello world')
 
+def prepare():
+	put('collconf','')
+	put('collexec.sh','')
+	put('collfunc','')
+
 def mem():
-    run('free -m |grep Mem|awk -v DATE="${a}" \'{print DATE" "$0}\'')
+    run('bash ./collexec.sh mem')
 
-def cpu():
-    #run('top -bn1 |grep Cpu|awk  \'{print $8}\'')
-    run('top -bn1|grep Cpu|grep -Po ".*ni,\K.*id"|sed -e \'s/id//\' -e \'s/%//\'')
+def cpuidle():
+    run('bash ./collexec.sh cpuidle')
 
-def disk():
-    run('df -h|grep G')
+def rootrate():
+    run('bash ./collexec.sh rootrate')
 
 def sn():
-    run('sudo -i dmidecode -s system-serial-number')
+    run('bash ./collexec.sh sn')
 
-def raid():
-    run('sudo -i megacli -PDList -aALL |grep Err')
+def diskerr():
+    run('bash ./collexec.sh diskerr')
