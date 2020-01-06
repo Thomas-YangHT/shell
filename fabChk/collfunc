@@ -2,25 +2,30 @@
 #OS
 func_OS(){
   [ "`uname -a|grep Ubuntu`" ] && sys=ubuntu || sys=centos
+  echo $sys
 }
 
 #DATE时间戳
 func_TIMESTAMP(){
 	TIMESTAMP=`date '+%Y-%m-%d %H:%M:%S'`
+	echo $TIMESTAMP
 }
 #net dev name:
 func_NETDEV(){
 	eth=`ip a|grep $NETWORK|awk '{print $7}'|grep -v "lo:"`
+	echo $eth
 }
 
 #IP
 func_IP(){
     IP=`ifconfig $eth |grep "inet "|awk '{print $2}'|sed 's/addr://'`
+	echo $IP
 }
 
 #CPUidle%
 func_CPUIDLE(){
     CPUIDLE=`top -bn1 |grep Cpu|awk  '{print $8}'`
+	echo $CPUIDLE
 }
 
 #内存：total, used 单位KB
@@ -28,6 +33,7 @@ func_MEM(){
 	memory=(`top -bn1 |grep 'Mem :'|awk '{print $4,$8}'`)
 	MEMTOTAL=${memory[0]}
 	MEMUSED=${memory[1]}
+	echo $MEMTOTAL $MEMUSED
 }
 
 #网络进出带宽, RX, TX, 单位字节B
@@ -37,10 +43,12 @@ func_NETSPEED(){
 	[ "$sys" = "centos" ] && netnext=(`ifconfig $eth| grep bytes|awk '{print $5}'`) || netnext=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
 	RX=$((${netnext[0]}-${netpre[0]}))
 	TX=$((${netnext[1]}-${netpre[1]}))
+	echo $RX $TX
 }
 #根分区的使用率 used
 func_DISKROOTRATE(){
     DISKROOTRATE=`df -h|grep "/$"|awk '{print $5}'|sed 's/%//'`
+	echo $DISKROOTRATE
 }
 
 #磁盘IO：sda硬盘的等待时间和利用率：await, util%
@@ -48,6 +56,7 @@ func_DISKIO(){
 	io=(`iostat -x|grep sda|awk '{print $10,$14}'`)
 	IOAWAIT=${io[0]}
 	IOUTIL=${io[1]}
+	echo $IOAWAIT $IOUTIL
 }
 #echo "$TIMESTAMP $IP $CPUIDLE $MEMTOTAL $MEMUSED $RX  $TX $DISKROOTRATE $IOAWAIT $IOUTIL"
 
