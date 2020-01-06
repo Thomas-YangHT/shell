@@ -15,32 +15,38 @@ func_NETDEV(){
 
 #IP
 func_IP(){
-    IP=`ifconfig $eth |grep "inet "|awk '{print $2}'|sed 's/addr://'`
+    #IP=`ifconfig $eth |grep "inet "|awk '{print $2}'|sed 's/addr://'`
+	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255`
 }
 
 #CPUidle%
 func_CPUIDLE(){
-    CPUIDLE=`top -bn1 |grep Cpu|awk  '{print $8}'`
+    #CPUIDLE=`top -bn1 |grep Cpu|awk  '{print $8}'`
+	CPUIDLE=`top -bn1 |grep Cpu|grep -v grep|awk -F',' '{print $4}'|sed 's/id//g'|sed 's/%//g'|sed 's/ //g'`
 }
 
 #内存：total, used 单位KB
 func_MEM(){
-	memory=(`top -bn1 |grep 'Mem :'|awk '{print $4,$8}'`)
-	MEMTOTAL=${memory[0]}
-	MEMUSED=${memory[1]}
+	#memory=(`top -bn1 |grep 'Mem :'|awk '{print $4,$8}'`)
+	cat /proc/meminfo |grep MemTotal
+	MEMTOTAL=`cat /proc/meminfo |grep MemTotal|awk '{print $2}'`
+	MEMUSED=`free |grep Mem|awk '{print $3}'`
 }
 
 #网络进出带宽, RX, TX, 单位字节B
 func_NETSPEED(){
-	[ "$sys" = "centos" ] && netpre=(`ifconfig $eth| grep bytes|awk '{print $5}'`) || netpre=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
+	export LANGUAGE="en_US.utf-8"
+	ver=`ifconfig --version 2>&1|grep 2.10`
+	[ "$ver" ] && netpre=(`ifconfig $eth| grep bytes|awk '{print $5}'`) || netpre=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
 	sleep 1
-	[ "$sys" = "centos" ] && netnext=(`ifconfig $eth| grep bytes|awk '{print $5}'`) || netnext=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
+	[ "$ver" ] && netnext=(`ifconfig $eth| grep bytes|awk '{print $5}'`) || netnext=(`ifconfig $eth |grep bytes|awk '{print $2,$6}'|sed 's/bytes://g'`)
 	RX=$((${netnext[0]}-${netpre[0]}))
 	TX=$((${netnext[1]}-${netpre[1]}))
 }
 #根分区的使用率 used
 func_DISKROOTRATE(){
-    DISKROOTRATE=`df -h|grep "/$"|awk '{print $5}'|sed 's/%//'`
+    #DISKROOTRATE=`df -h|grep "/$"|awk '{print $5}'|sed 's/%//'`
+	DISKROOTRATE=`df -h /|grep -w '/'|awk '{print $(NF-1)}'|sed 's/%//'`
 }
 
 #磁盘IO：sda硬盘的等待时间和利用率：await, util%
@@ -55,6 +61,8 @@ func_DISKIO(){
 #portsinfo---------------------------------------------------------------------------------------
 #开放的端口: 协议、IP、Port、PID、procname
 func_NETPORTS(){
+	func_TIMESTAMP
+	func_IP
     NETPORTS=(`netstat -nlptu|awk 'NR>2{if($1~"tcp")print $1"," $4","$7;if($1=="udp")print $1","$4","$6}'|sed -e 's/\//,/g' -e 's/:::/---,/g' -e 's/:/,/g' -e 's/---/:::/g'`)
     echo -n>/tmp/netports.csv
     rows=${#NETPORTS[@]}
@@ -89,8 +97,10 @@ func_baseinfo(){
 	HOSTNAME=`hostname`
 	TZ=`tail -n 1 /etc/localtime`
 	KERNEL=`uname -ro`
-	MAC=`(ifconfig $eth|grep ether||ifconfig $eth|grep HWaddr)|grep -Po '..:..:..:..:..:..'`
-	IP=`/sbin/ifconfig $eth| egrep 'inet[^0-9].*' | grep -v '127.0.0.1' | awk '{print $2}'|sed -e 's/addr://' -e 's/Mask://'`
+	#MAC=`(ifconfig $eth|grep ether||ifconfig $eth|grep HWaddr)|grep -Po '..:..:..:..:..:..'`
+	MAC=`ip a show dev $eth|grep -Po "[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+"|grep -v ff`
+	#IP=`/sbin/ifconfig $eth| egrep 'inet[^0-9].*' | grep -v '127.0.0.1' | awk '{print $2}'|sed -e 's/addr://' -e 's/Mask://'`
+	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255`
 	CPU=`cat /proc/cpuinfo |grep 'model name'|awk -F':' '{print $2}'|uniq -c`
 	MEMORY=`cat /proc/meminfo |grep MemTotal`
 	DISK=`sudo -i fdisk -l |grep -v mapper|grep -Po 'Disk /dev/\K.*GB'|xargs`
