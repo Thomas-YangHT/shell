@@ -36,6 +36,26 @@ p|prepare)
   echo "start check " $prepareInfo "..."
   func_prepare
 ;;
+baseinfo)
+  echo "start check " $baseInfo "..."
+  func_baseinfo
+;;
+moninfo)
+  echo "start check " $monInfo "..."
+  func_moninfo
+;;
+portsinfo)
+  echo "start check " $portsInfo "..."
+  func_portsinfo
+;;
+bakinfo)
+  echo "start check " $bakInfo "..."
+  func_bakinfo
+;;
+errinfo)
+  echo "start check " $errInfo "..."
+  func_errinfo
+;;
 1|cpuidle)
   echo "start check " $cpuidleInfo "..."
   func_cpuidle

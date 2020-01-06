@@ -8,17 +8,47 @@ def prepare():
 	put('collexec.sh','')
 	put('collfunc','')
 
-def mem():
-    run('bash ./collexec.sh mem')
+def baseinfo():
+    run('bash ./collexec.sh baseinfo')
+
+def moninfo():
+    run('bash ./collexec.sh moninfo')
+
+def portsinfo():
+    run('bash ./collexec.sh portsinfo')
+
+def bakinfo():
+    run('bash ./collexec.sh bakinfo')
+
+def errinfo():
+    run('bash ./collexec.sh errinfo')
+
+def os():
+    run('bash ./collexec.sh os')
+
+def sn():
+    run('bash ./collexec.sh sn')
 
 def cpuidle():
     run('bash ./collexec.sh cpuidle')
 
-def rootrate():
-    run('bash ./collexec.sh rootrate')
+def timestamp():
+    run('bash ./collexec.sh timestamp')
 
-def sn():
-    run('bash ./collexec.sh sn')
+def ip():
+    run('bash ./collexec.sh ip')
+
+def mem():
+    run('bash ./collexec.sh mem')
+
+def netspeed():
+    run('bash ./collexec.sh netspeed')
+
+def diskrootrate():
+    run('bash ./collexec.sh diskrootrate')
+
+def diskio():
+    run('bash ./collexec.sh diskio')
 
 def diskerr():
     run('bash ./collexec.sh diskerr')

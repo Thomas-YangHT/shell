@@ -47,8 +47,7 @@ bakinfo)
   func_bakinfo
 ;;
 errorinfo)
-  func_MegaERR
-  echo "$MegaERR"
+  func_MegaERR  &&  echo "$MegaERR"
 ;;
 1|os)
   func_OS &&   echo $sys
@@ -56,9 +55,32 @@ errorinfo)
 2|sn)
   func_SN &&   echo $SN
 ;;
+3|cpuidle)
+  func_CPUIDLE &&   echo $CPUIDLE
+;;
+4|timestamp)
+  func_TIMESTAMP &&   echo $TIMESTAMP
+;;
+5|ip)
+  func_NETDEV
+  func_IP &&   echo $IP
+;;
+6|mem)
+  func_MEM &&  echo $MEMTOTAL $MEMUSED
+;;	
+7|netspeed)
+  func_OS
+  func_NETDEV
+  func_NETSPEED &&  	echo $RX $TX
+;;	
+8|diskrootrate)
+    func_DISKROOTRATE  &&  echo $DISKROOTRATE
+;;
+9|diskio)
+  func_DISKIO &&  	echo $IOAWAIT $IOUTIL
+;;
 diskerr)
-  func_MegaERR
-  echo $MegaERR
+  func_MegaERR  &&  echo $MegaERR
 ;;
 help|*)
   echo "usage: $0 [`echo ${funclist[@]}|sed 's/ /|/g'`] [-ip <ip> |-ipfile <filename>]"
