@@ -1,4 +1,4 @@
-#!$(which bash)
+#!(which bash)
 #  _       _                          __  __                 
 # | |     (_)  _ __    _   _  __  __ |  \/  |   __ _   _ __  
 # | |     | | | '_ \  | | | | \ \/ / | |\/| |  / _` | | '_ \ 
@@ -14,20 +14,26 @@ source ./FUNCTION
 [  "$IPS" ] || (IPS=`cat $IpFile|grep -vP "^#|^$"|awk '{print $1}'|xargs| sed 's/ /,/g'` && \
 COUNT=`cat $IpFile|grep -vP "^#|^$"|wc -l`)
 #
+prepareInfo="put collexec shell scripts to hosts in ips.txt"
 cpuidleInfo="cpu IDLE"
 memInfo="memtotal memused"
 rootrateInfo="root usage"
 snInfo="Series Number"
 diskerrInfo="RAID & Disk error"
-funclist=(cpuidle mem rootrate sn diskerr help)
-funcinfo=($cpuidleInfo $memInfo $rootrateInfo $snInfo $diskerrInfo $helpInfo)
+funclist=(prepare cpuidle mem rootrate sn diskerr help)
+funcinfo=($prepareInfo $cpuidleInfo $memInfo $rootrateInfo $snInfo $diskerrInfo $helpInfo)
 #
 case $1 in
 0|all)
   echo "start all check..."
+  func_prepare
   func_cpuidle
   func_mem
   func_rootrate
+;;
+p|prepare)
+  echo "start check " $prepareInfo "..."
+  func_prepare
 ;;
 1|cpuidle)
   echo "start check " $cpuidleInfo "..."

@@ -1,4 +1,4 @@
-#!$(which bash)
+#!(which bash)
 source ./collfunc
 source ./collconf
 
