@@ -11,8 +11,9 @@ source ./CONFIG
 source ./FUNCTION
 [ -n "$2" ] && [ "$2" = "-ip" ] && echo "use ip :$3" && IPS="$3" || IpFile=ips.txt
 [ -n "$2" ] && [ "$2" = "-ipfile" ] && [ -f $3 ] && echo "use ip file:$3" && IpFile="$3" || IpFile=ips.txt
-[  "$IPS" ] || (IPS=`cat $IpFile|grep -vP "^#|^$"|awk '{print $1}'|xargs| sed 's/ /,/g'` && \
-COUNT=`cat $IpFile|grep -vP "^#|^$"|wc -l`)
+[  "$IPS" ] || IPS=`cat $IpFile|grep -vP "^#|^$"|awk '{print $1}'|xargs| sed 's/ /,/g'` 
+COUNT=`echo $IPS|wc -w`
+#COUNT=`cat $IpFile|grep -vP "^#|^$"|wc -l`)
 #
 prepareInfo="put collexec shell scripts to hosts in ips.txt"
 cpuidleInfo="cpu IDLE"
