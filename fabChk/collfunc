@@ -85,7 +85,7 @@ func_SaveToMysql(){
 #errinfo-------------------------------------------------------------------------------------------------------
 #Raid or Harddisk error
 func_MegaERR(){
-    MegaERR=`sudo -i megacli -PDList -aALL|grep -P "Err|Slot Number"|xargs -n 11|grep -vP "Err.*0.*Err.*0"`
+    MegaERR=`sudo -i megacli -PDList -aALL|grep -P "Err|Slot Number"|Firmware state|xargs -n 16|grep -vP "Err.*0.*Err.*0"`
 }
 
 
