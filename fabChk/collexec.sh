@@ -21,11 +21,11 @@ portsinfo="get portsinfo"
 bakinfo="get bakinfo"
 errinfo="get errinfo"
 funclist=(baseinfo moninfo portsinfo bakinfo errinfo os timestamp netdev ip cpuidle mem netspeed diskrootrate diskio netports sn megaerr)
-funcinfo=($baseinfo $moninfo $portsinfo $bakinfo $errinfo $osInfo $timestampInfo $netdevInfo $ipInfo $cpuidleInfo $memInfo $netspeedInfo $diskrootrateInfo $diskioInfo $netportsInfo $snInfo $megaerrInfo)
+funcinfo=("$baseinfo" "$moninfo" "$portsinfo" "$bakinfo" "$errinfo" "$osInfo" "$timestampInfo" "$netdevInfo" "$ipInfo" "$cpuidleInfo" "$memInfo" "$netspeedInfo" "$diskrootrateInfo" "$diskioInfo" "$netportsInfo" "$snInfo" "$megaerrInfo")
 #把获取的信息分成五组：
 #		baseinfo		基本信息
 #		moninfo			监控信息
-#		portsinfo       端口信息
+#		portsinfo   端口信息
 #		bakinfo			备份信息
 #		errinfo			错误信息：如硬盘故障
 case $1 in
@@ -85,13 +85,13 @@ errorinfo)
   func_DISKIO &&  	echo $IOAWAIT $IOUTIL
 ;;
 diskerr)
-  func_MegaERR  &&  echo $MegaERR
+  func_MegaERR  &&  echo $MegaERR || echo "No disk err"
 ;;
 help|*)
   echo "usage: $0 [`echo ${funclist[@]}|sed 's/ /|/g'`] [-ip <ip> |-ipfile <filename>]"
   for ((i=1;i<${#funclist[@]};i++))
   do 
-    echo ${funclist[i]}"            :"${funcinfo[i]}
+    echo  "        "${funclist[i]}"           :"${funcinfo[i]}
   done
 ;;
 esac

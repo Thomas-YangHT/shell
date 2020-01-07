@@ -10,7 +10,7 @@ func_TIMESTAMP(){
 }
 #net dev name:
 func_NETDEV(){
-	eth=`ip a|grep $NETWORK|sed 's/noprefixroute//'|awk '{print $7}'|grep -v "lo:"|head -n 1`
+	eth=`ip a|grep $NETWORK\\.|sed 's/noprefixroute//'|awk '{print $7}'|grep -v "lo:"|head -n 1`
 }
 
 #IP
@@ -28,7 +28,6 @@ func_CPUIDLE(){
 #内存：total, used 单位KB
 func_MEM(){
 	#memory=(`top -bn1 |grep 'Mem :'|awk '{print $4,$8}'`)
-	cat /proc/meminfo |grep MemTotal
 	MEMTOTAL=`cat /proc/meminfo |grep MemTotal|awk '{print $2}'`
 	MEMUSED=`free |grep Mem|awk '{print $3}'`
 }
