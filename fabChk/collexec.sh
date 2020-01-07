@@ -15,8 +15,13 @@ diskioInfo="disk IO await util%"
 netportsInfo="opened Ports"
 snInfo="series number"
 megaerrInfo="error of raid or disk"
-funclist=(os timestamp netdev ip cpuidle mem netspeed diskrootrate diskio netports sn megaerr)
-funcinfo=($osInfo $timestampInfo $netdevInfo $ipInfo $cpuidleInfo $memInfo $netspeedInfo $diskrootrateInfo $diskioInfo $netportsInfo $snInfo $megaerrInfo)
+baseinfo="get baseinfo"
+moninfo="get moninfo"
+portsinfo="get portsinfo"
+bakinfo="get bakinfo"
+errinfo="get errinfo"
+funclist=(baseinfo moninfo portsinfo bakinfo errinfo os timestamp netdev ip cpuidle mem netspeed diskrootrate diskio netports sn megaerr)
+funcinfo=($baseinfo $moninfo $portsinfo $bakinfo $errinfo $osInfo $timestampInfo $netdevInfo $ipInfo $cpuidleInfo $memInfo $netspeedInfo $diskrootrateInfo $diskioInfo $netportsInfo $snInfo $megaerrInfo)
 #把获取的信息分成五组：
 #		baseinfo		基本信息
 #		moninfo			监控信息
