@@ -99,7 +99,7 @@ func_baseinfo(){
 	#MAC=`(ifconfig $eth|grep ether||ifconfig $eth|grep HWaddr)|grep -Po '..:..:..:..:..:..'`
 	MAC=`ip a show dev $eth|grep -Po "[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+:[a-f0-9A-F]+"|grep -v ff`
 	#IP=`/sbin/ifconfig $eth| egrep 'inet[^0-9].*' | grep -v '127.0.0.1' | awk '{print $2}'|sed -e 's/addr://' -e 's/Mask://'`
-	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255`
+	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255|head -n 1`
 	CPU=`cat /proc/cpuinfo |grep 'model name'|awk -F':' '{print $2}'|uniq -c`
 	MEMORY=`cat /proc/meminfo |grep MemTotal`
 	DISK=`sudo -i fdisk -l |grep -v mapper|grep -Po 'Disk /dev/\K.*GB'|xargs`
