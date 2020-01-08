@@ -3,52 +3,55 @@ from fabric.api import *
 def test():
     run('echo hello world')
 
+ExecDir='~/monagent.client/'
+
 def prepare():
-	put('collconf','')
-	put('collexec.sh','')
-	put('collfunc','')
+    run('rm -f collconf collexec.sh collfunc;[ -d '+ExecDir+' ] ||  mkdir '+ExecDir+' && echo "already exist '+ExecDir+'"')
+    put('collconf',ExecDir)
+    put('collexec.sh',ExecDir)
+    put('collfunc',ExecDir)
 
 def baseinfo():
-    run('bash ./collexec.sh baseinfo')
+    run('cd '+ExecDir+';bash ./collexec.sh baseinfo')
 
 def moninfo():
-    run('bash ./collexec.sh moninfo')
+    run('cd '+ExecDir+';bash ./collexec.sh moninfo')
 
 def portsinfo():
-    run('bash ./collexec.sh portsinfo')
+    run('cd '+ExecDir+';bash ./collexec.sh portsinfo')
 
 def bakinfo():
-    run('bash ./collexec.sh bakinfo')
+    run('cd '+ExecDir+';bash ./collexec.sh bakinfo')
 
 def errinfo():
-    run('bash ./collexec.sh errinfo')
+    run('cd '+ExecDir+';bash ./collexec.sh errinfo')
 
 def os():
-    run('bash ./collexec.sh os')
+    run('cd '+ExecDir+';bash ./collexec.sh os')
 
 def sn():
-    run('bash ./collexec.sh sn')
+    run('cd '+ExecDir+';bash ./collexec.sh sn')
 
 def cpuidle():
-    run('bash ./collexec.sh cpuidle')
+    run('cd '+ExecDir+';bash ./collexec.sh cpuidle')
 
 def timestamp():
-    run('bash ./collexec.sh timestamp')
+    run('cd '+ExecDir+';bash ./collexec.sh timestamp')
 
 def ip():
-    run('bash ./collexec.sh ip')
+    run('cd '+ExecDir+';bash ./collexec.sh ip')
 
 def mem():
-    run('bash ./collexec.sh mem')
+    run('cd '+ExecDir+';bash ./collexec.sh mem')
 
 def netspeed():
-    run('bash ./collexec.sh netspeed')
+    run('cd '+ExecDir+';bash ./collexec.sh netspeed')
 
 def diskrootrate():
-    run('bash ./collexec.sh diskrootrate')
+    run('cd '+ExecDir+';bash ./collexec.sh diskrootrate')
 
 def diskio():
-    run('bash ./collexec.sh diskio')
+    run('cd '+ExecDir+';bash ./collexec.sh diskio')
 
 def diskerr():
-    run('bash ./collexec.sh diskerr')
+    run('cd '+ExecDir+';bash ./collexec.sh diskerr')

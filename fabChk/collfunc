@@ -16,7 +16,7 @@ func_NETDEV(){
 #IP
 func_IP(){
     #IP=`ifconfig $eth |grep "inet "|awk '{print $2}'|sed 's/addr://'`
-	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255`
+	IP=`ip a show dev $eth |grep -Po "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"|grep -v 255|head -n 1`
 }
 
 #CPUidle%
