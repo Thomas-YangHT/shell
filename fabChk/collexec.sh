@@ -1,7 +1,7 @@
 #!(which bash)
 source ./collfunc
 source ./collconf
-
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/bin:/sbin:/bin
 #define information for help
 osInfo="os type"
 timestampInfo="timestamp"
