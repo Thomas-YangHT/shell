@@ -50,7 +50,7 @@ func_DISKROOTRATE(){
 
 #磁盘IO：sda硬盘的等待时间和利用率：await, util%
 func_DISKIO(){
-	io=(`iostat -x|grep sda|awk '{print $10,$14}'`)
+	io=(`iostat -x|grep -P "sda|vda"|awk '{print $10,$14}'`)
 	IOAWAIT=${io[0]}
 	IOUTIL=${io[1]}
 }
