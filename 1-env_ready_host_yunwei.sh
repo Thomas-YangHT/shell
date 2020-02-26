@@ -28,7 +28,7 @@ systemctl disable firewalld
 
 #SSHD禁掉DNS解析、网卡的名字改回ethX;
 sed  -i  '/UseDNS/i UseDNS=no' /etc/ssh/sshd_config
-sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grup2/grub.conf
+sed -i.ori 's/rhgb/net.ifnames=0 biosdevname=0 rhgb/g' /boot/grup2/grub.conf
 #使用EFI启动方式的情形：单挂载/boot/efi，grub.cfg位置变为：/boot/efi/EFI/centos/grub.cfg
 #sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/efi/EFI/centos/grub.cfg
 

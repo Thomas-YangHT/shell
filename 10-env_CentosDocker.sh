@@ -104,11 +104,28 @@ grep serial /etc/default/grub
 #8.ethX网卡名
 grep net.ifnames=0 /boot/grub2/grub.cfg
 [ $? != 0 ] &&  sed -i.ori 's/rhgb/net.ifnames=0 biosdevnam=0 rhgb/g' /boot/grub2/grub.cfg
+<<<<<<< HEAD
 
 #9.BASH提示符
 echo 'export PS1="\[\e[32;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
 
 #10.语言字符集
+=======
+echo 'export PS1="\[\e[34;40m\]\u@\h\[\e[35;40m\]\t\[\e[0m\]\w#"' >>/root/.bashrc
+##颜色
+#30  40 黑色
+#31  41 红色
+#32  42 绿色
+#33  43 黄色
+#34  44 蓝色
+#35  45 紫红色
+#36  46 青蓝色
+#37  47 白色
+#PS1=’[\e[32;40m] [[\u@\h \w \t]$ [\e[0m]’
+#PS1="[\e[37;40m][[\e[32;40m]\u[\e[37;40m]@\h [\e[36;40m]\w[\e[0m]]\$ "
+#PS1="[\e[37;40m][[\e[32;40m]\u[\e[37;40m]@[\e[35;40m]\h[\e[0m] [\e[36;40m]\w[\e[0m]]\$ "
+
+>>>>>>> 6cd6a497eb4369e5117eb0efa290e24b9730bb65
 echo 'LANG="zh_CN.UTF-8"' >/etc/locale.conf
 echo 'LC_ALL="en_US.UTF-8"' >>/etc/locale.conf
 

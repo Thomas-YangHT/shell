@@ -1,0 +1,49 @@
+#!/usr/bin/bash
+#
+func_prepare(){
+	fab -H $IPS -f fab_chk.py prepare -u $REMOTE_USER -P $COLLOR
+}
+
+func_baseinfo(){
+	fab -H $IPS -f fab_chk.py baseinfo -u $REMOTE_USER -P $COLLOR
+}
+
+func_moninfo(){
+	fab -H $IPS -f fab_chk.py moninfo -u $REMOTE_USER -P $COLLOR
+}
+
+func_portsinfo(){
+	fab -H $IPS -f fab_chk.py portsinfo -u $REMOTE_USER -P $COLLOR
+}
+
+func_bakinfo(){
+	fab -H $IPS -f fab_chk.py bakinfo -u $REMOTE_USER -P $COLLOR
+}
+
+func_errinfo(){
+	fab -H $IPS -f fab_chk.py errinfo -u $REMOTE_USER -P $COLLOR
+}
+
+func_os(){
+	fab -H `echo $PHY_HOSTS|sed 's/ /,/g'` -f fab_chk.py os -u $REMOTE_USER -P $COLLOR
+}
+
+func_sn(){
+	fab -H `echo $PHY_HOSTS|sed 's/ /,/g'` -f fab_chk.py sn -u $REMOTE_USER -P $COLLOR
+}
+
+func_cpuidle(){
+	fab -H $IPS -f fab_chk.py cpuidle -u $REMOTE_USER -P $COLLOR|grep -P "out:.*[0-9]"
+}
+
+func_mem(){
+	fab -H $IPS -f fab_chk.py mem -u $REMOTE_USER -P $COLLOR|grep -P "out:.*Mem"
+}
+
+func_rootrate(){
+	fab -H $IPS -f fab_chk.py rootrate -u $REMOTE_USER -P $COLLOR|grep -P "out:.*G|T"
+}
+
+func_diskerr(){
+	fab -H `echo $PHY_HOSTS|sed 's/ /,/g'` -f fab_chk.py diskerr -u $REMOTE_USER -P $COLLOR
+}
